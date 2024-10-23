@@ -1,0 +1,41 @@
+[
+    {
+        "id": 1,
+        "name": "Spaghetti Carbonara",
+        "description": "A quick and delicious Italian classic.",
+        "image": "recipe1.jpg",
+        "ingredients": [
+            "Spaghetti",
+            "Eggs",
+            "Pancetta",
+            "Parmesan cheese",
+            "Pepper"
+        ],
+        "instructions": [
+            "Cook spaghetti.",
+            "Fry pancetta.",
+            "Mix eggs and cheese.",
+            "Combine all with pepper."
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Chicken Tacos",
+        "description": "Spicy and flavorful tacos to satisfy your cravings.",
+        "image": "recipe2.jpg",
+        "ingredients": [
+            "Chicken breast",
+            "Taco shells",
+            "Lettuce",
+            "Tomato",
+            "Cheese",
+            "Salsa"
+        ],
+        "instructions": [
+            "Cook chicken.",
+            "Prepare taco shells.",
+            "Fill with ingredients."
+        ]
+    }
+    
+]
