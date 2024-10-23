@@ -6,7 +6,6 @@ let recipes = []; // Array to hold recipes
 function searchRecipes() {
     let searchQuery = document.getElementById("searchInput").value.toLowerCase();
     let recipeCards = document.querySelectorAll(".recipe-card");
-
     recipeCards.forEach(card => {
         let recipeName = card.getAttribute("data-recipe-name").toLowerCase();
         if (recipeName.includes(searchQuery)) {
@@ -15,16 +14,15 @@ function searchRecipes() {
             card.style.display = "none";
         }
     });
-
     // Reset carousel index after search
-    currentIndex = 0; 
+    currentIndex = 0;
     updateCarousel(); // Update the carousel after filtering
 }
 
 // Load Recipes
 async function loadRecipes() {
     try {
-        const response = await fetch('path/to/your/recipes.json'); // Update with the actual path
+        const response = await fetch('recipes.json'); // Update with the actual path
         recipes = await response.json(); // Store recipes globally
         displayRecipes(); // Display recipes in the carousel
     } catch (error) {
@@ -36,7 +34,6 @@ async function loadRecipes() {
 function displayRecipes() {
     const carouselContainer = document.getElementById('carouselContainer');
     carouselContainer.innerHTML = ''; // Clear existing content
-
     // Loop through the recipes array and create recipe cards
     recipes.forEach((recipe) => {
         const recipeCard = document.createElement('div');
@@ -50,7 +47,6 @@ function displayRecipes() {
         `;
         carouselContainer.appendChild(recipeCard);
     });
-
     updateCarousel(); // Update carousel to show the first set of recipes
 }
 
@@ -58,28 +54,24 @@ function displayRecipes() {
 function updateCarousel() {
     const carouselContainer = document.getElementById('carouselContainer');
     const recipeCards = document.querySelectorAll('.recipe-card');
-
     if (recipeCards.length === 0) return; // Prevent errors if there are no cards
-
     // Calculate the width of the carousel based on the number of cards
-    const cardWidth = recipeCards[0].offsetWidth; // Get width of one card
+    const cardWidth = recipeCards[0].offsetWidth + 20; // Get width of one card including margin
     const offset = currentIndex * cardWidth;
-
     // Apply the offset to the carousel
     carouselContainer.style.transform = `translateX(-${offset}px)`;
-
     // Update button states
-    document.querySelector('.prev').disabled = currentIndex === 0;
-    document.querySelector('.next').disabled = currentIndex >= recipeCards.length - 1;
+    document.querySelector('.prev').disabled = currentIndex === 0 && recipeCards.length <= 1;
+    document.querySelector('.next').disabled = currentIndex === recipeCards.length - 1 && recipeCards.length <= 1;
 }
 
 // Change Recipe (carousel navigation)
 function changeRecipe(direction) {
     const recipeCards = document.querySelectorAll('.recipe-card');
-    if (direction === 1 && currentIndex < recipeCards.length - 1) {
-        currentIndex++;
-    } else if (direction === -1 && currentIndex > 0) {
-        currentIndex--;
+    if (direction === 1) {
+        currentIndex = (currentIndex + 1) % recipeCards.length;
+    } else if (direction === -1) {
+        currentIndex = (currentIndex - 1 + recipeCards.length) % recipeCards.length;
     }
     updateCarousel(); // Update the carousel position
 }
@@ -88,12 +80,10 @@ function changeRecipe(direction) {
 async function loadRecipeDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const recipeId = urlParams.get('id');
-
     try {
-        const response = await fetch('path/to/your/recipes.json'); // Update with the actual path
+        const response = await fetch('recipes.json'); // Update with the actual path
         const recipes = await response.json();
         const recipe = recipes.find(r => r.id == recipeId);
-
         if (recipe) {
             const recipeContainer = document.getElementById('recipeDetails');
             recipeContainer.innerHTML = `
@@ -104,7 +94,7 @@ async function loadRecipeDetails() {
                     ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
                 </ul>
                 <h2>Instructions</h2>
-                <p>${recipe.instructions}</p>
+                <p>${recipe.instructions.join('<br>')}</p>
             `;
         } else {
             console.error('Recipe not found');

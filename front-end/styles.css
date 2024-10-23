@@ -141,49 +141,47 @@ footer {
 .carousel {
     display: flex;
     align-items: center;
-    position: relative;
     overflow: hidden;
-    margin: 20px 0; /* Add margin for spacing */
-}
-
-.carousel-container {
+    position: relative;
+  }
+  
+  .carousel-container {
     display: flex;
-    transition: transform 0.5s ease;
-    width: calc(100% * 3); /* Adjust based on the number of recipes */
-}
-
-.recipe-card {
-    min-width: 50%; /* Each recipe card takes half the width */
-    box-sizing: border-box;
-    padding: 20px;
-}
-
-.prev, .next {
-    background-color: #28a745; /* Green */
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+  
+  .carousel .prev, .carousel .next {
+    background-color: #333;
     border: none;
     color: white;
-    padding: 15px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 1.5em;
+    padding: 10px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1;
-    border-radius: 5px; /* Add rounded corners */
-    transition: background-color 0.3s ease; /* Smooth transition */
-}
-
-.prev:hover, .next:hover {
-    background-color: #218838; /* Darker green on hover */
-}
-
-.prev {
+    z-index: 2;
+  }
+  
+  .carousel .prev {
     left: 10px;
-}
-
-.next {
+  }
+  
+  .carousel .next {
     right: 10px;
-}
+  }
+  
+  .recipe-card {
+    flex: 0 0 20%; /* Adjust the width of each card as needed */
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    text-align: center;
+  }
+  
 
 /* Responsive Styles */
 @media (max-width: 768px) {
