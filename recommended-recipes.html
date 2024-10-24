@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uRecipe - Recommended Recipes</title>
+    <style>
+        body {
+            background-color: #4B0000; /* Dark red background */
+            color: #fff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #D2B48C; /* Tan color */
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        /* Back link styling */
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Recipe content */
+        .recommended-recipes {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .recipe-card {
+            background-color: #D2B48C; /* Tan color */
+            margin: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            width: 200px; /* Adjust the width as needed */
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .recipe-card:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+
+        .recipe-title {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .recipe-description {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Recommended Recipes</h1>
+        <a href="index.html" class="back-link">&#8592; Back to Home</a> <!-- Link to homepage -->
+    </header>
+
+    <!-- Recommended Recipes Content -->
+    <section class="recommended-recipes">
+        <h2>Discover our Recommended Recipes!</h2>
+        <div class="recipe-card" onclick="location.href='recipe1.html'">
+            <h3 class="recipe-title">Recipe 1</h3>
+            <p class="recipe-description">A delicious and healthy recipe to try!</p>
+        </div>
+        <div class="recipe-card" onclick="location.href='recipe2.html'">
+            <h3 class="recipe-title">Recipe 2</h3>
+            <p class="recipe-description">A quick and easy recipe for dinner!</p>
+        </div>
+        <div class="recipe-card" onclick="location.href='recipe3.html'">
+            <h3 class="recipe-title">Recipe 3</h3>
+            <p class="recipe-description">Perfect for a family gathering!</p>
+        </div>
+        <div class="recipe-card" onclick="location.href='recipe4.html'">
+            <h3 class="recipe-title">Recipe 4</h3>
+            <p class="recipe-description">An exquisite dessert to end your meal!</p>
+        </div>
+        <div class="recipe-card" onclick="location.href='recipe5.html'">
+            <h3 class="recipe-title">Recipe 5</h3>
+            <p class="recipe-description">A refreshing salad recipe!</p>
+        </div>
+        <div class="recipe-card" onclick="location.href='recipe6.html'">
+            <h3 class="recipe-title">Recipe 6</h3>
+            <p class="recipe-description">A hearty soup for chilly days!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 uRecipe - All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
