@@ -14,8 +14,12 @@
             <h2>Discover New Recipes and Plan Your Meals with Ease</h2>
             <p>Browse our collection of diverse recipes, plan your meals, and manage your ingredients effortlessly.</p>
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Search for recipes...">
-                <button type="button" onclick="searchRecipes()">Search</button>
+                <form id="searchForm" action="pages/search.html" method="get">
+                    <!-- Add a 'name' attribute to the input field -->
+                    <input type="text" id="searchInput" name="query" placeholder="Search for recipes...">
+                    <!-- Change button type to 'submit' -->
+                    <button type="submit">Search</button>
+                </form>    
             </div>
         </div>
     </section>
@@ -45,4 +49,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

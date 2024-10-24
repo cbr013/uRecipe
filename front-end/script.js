@@ -4,20 +4,12 @@ let recipes = []; // Array to hold recipes
 
 // Recipe Search Function
 function searchRecipes() {
-    let searchQuery = document.getElementById("searchInput").value.toLowerCase();
-    let recipeCards = document.querySelectorAll(".recipe-card");
-    recipeCards.forEach(card => {
-        let recipeName = card.getAttribute("data-recipe-name").toLowerCase();
-        if (recipeName.includes(searchQuery)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-    });
-    // Reset carousel index after search
-    currentIndex = 0;
-    updateCarousel(); // Update the carousel after filtering
+    const query = document.getElementById('searchInput').value;
+    if (query) {
+        window.location.href = `pages/search.html?query=${query}`;
+    }
 }
+
 
 // Load Recipes
 async function loadRecipes() {
