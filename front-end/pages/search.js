@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <img src="${recipe.image}" alt="${recipe.name}">
                     <h3>${recipe.name}</h3>
                     <p>${recipe.description}</p>
-                    <a href="recipe.html?id=${recipe.id}" class="view-recipe-btn">View Recipe</a>
+                    <a href="view_recipe.html?id=${recipe.id}" class="view-recipe-btn">View Recipe</a>
                 `;
                 resultsContainer.appendChild(recipeCard);
             });
