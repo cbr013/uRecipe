@@ -7,19 +7,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">uRecipe</a>
+                <ul class="nav-links">
+                    <li><a href="landing_page.html">Home</a></li>
+                    <li><a href="pages/view_recipe.css">Recipes</a></li>
+                    <li><a href="pages/login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Welcome to uRecipe!</h1>
-            <h2>Discover New Recipes and Plan Your Meals with Ease</h2>
-            <p>Browse our collection of diverse recipes, plan your meals, and manage your ingredients effortlessly.</p>
-            <div class="search-bar">
-                <form id="searchForm" action="pages/search.html" method="get">
-                    <!-- Add a 'name' attribute to the input field -->
-                    <input type="text" id="searchInput" name="query" placeholder="Search for recipes...">
-                    <!-- Change button type to 'submit' -->
-                    <button type="submit">Search</button>
-                </form>    
+        <div class="overlay">
+            <div class="container">
+                <h1>Welcome to uRecipe!</h1>
+                <h2>Discover New Recipes and Plan Your Meals with Ease</h2>
+                <p>Browse our collection of diverse recipes, plan your meals, and manage your ingredients effortlessly.</p>
+                <div class="search-bar">
+                    <form id="searchForm" action="pages/search.html" method="get">
+                        <input type="text" id="searchInput" name="query" placeholder="Search for recipes...">
+                        <button type="submit">Find Recipes</button>
+                    </form>    
+                </div>
             </div>
         </div>
     </section>
@@ -45,7 +59,6 @@
         </div>
     </footer>
 
-    <!-- Link to your script file -->
     <script src="script.js"></script>
 </body>
 </html>
