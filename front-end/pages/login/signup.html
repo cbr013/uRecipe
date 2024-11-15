@@ -10,16 +10,39 @@
     <section class="login-section">
         <div class="container">
             <h1>Create a uRecipe Account</h1>
-            <form id="signupForm" action="#" method="post">
+            <form id="signupForm" method="post">
                 <input type="text" id="username" name="username" placeholder="Username" required>
                 <input type="email" id="email" name="email" placeholder="Email" required>
                 <input type="password" id="password" name="password" placeholder="Password" required>
                 <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
                 <button type="submit" id="signupButton">Sign Up</button>
             </form>
+            <p class="login-link">
+                Already have an account? <a href="login.html">Log in here</a>
+            </p>
         </div>
     </section>
 
-    <script src="signup.js"></script> <!-- Adjust path as needed -->
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent the form's default behavior
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Save user data to localStorage
+            const user = { email, password };
+            localStorage.setItem(username, JSON.stringify(user));
+            alert('Signup successful! Redirecting to login page...');
+            window.location.href = 'login.html'; // Redirect to login page
+        });
+    </script>
 </body>
 </html>
