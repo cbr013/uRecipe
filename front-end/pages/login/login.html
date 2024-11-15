@@ -24,24 +24,28 @@
     <script>
         document.getElementById('loginForm').addEventListener('submit', (event) => {
             event.preventDefault(); // Prevent the form's default behavior
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
+    
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+    
             // Retrieve user data from localStorage
             const user = JSON.parse(localStorage.getItem(username));
+    
             if (!user) {
                 alert('User not found! Please sign up first.');
                 return;
             }
-
+    
             if (user.password === password) {
-                alert('Login successful! Redirecting to landing page...');
-                window.location.href = '/uRecipe-main/front-end/landing_page.html'; // Replace with your landing page URL
+                // Save the current user in localStorage
+                localStorage.setItem('currentUser', username);
+                alert('Login successful! Redirecting to home page...');
+                window.location.href = '/uRecipe-main/front-end/pages/user_home.html'; // Redirect to user_home.html
             } else {
                 alert('Invalid password. Please try again.');
             }
         });
     </script>
+    
 </body>
 </html>
