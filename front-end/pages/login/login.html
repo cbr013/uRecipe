@@ -18,6 +18,8 @@
             <p class="signup-link">
                 Don't have an account? <a href="signup.html">Sign up here</a>
             </p>
+            <!-- Guest Option -->
+            <a href="/uRecipe-main/front-end/landing_page.html" class="guest-btn">Continue as Guest</a>
         </div>
     </section>
 
@@ -44,6 +46,12 @@
             } else {
                 alert('Invalid password. Please try again.');
             }
+        });
+
+        // Guest Button Click Event
+        document.querySelector('.guest-btn').addEventListener('click', function (event) {
+            // Optional: Mark the user as a guest using localStorage or sessionStorage
+            localStorage.setItem('userStatus', 'guest');
         });
     </script>
     
