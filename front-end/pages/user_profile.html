@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - uRecipe</title>
+    <link rel="stylesheet" href="user_profile.css"> <!-- Link to your profile CSS file -->
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="/uRecipe-main/front-end/pages/user_home.html">uRecipe</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/uRecipe-main/front-end/pages/user_profile.html">Profile</a></li>
+                <li><a href="/uRecipe-main/front-end/pages/user_recipes.html">Your Recipes</a></li>
+                <li><a href="../meal_planner.html">Meal Planner</a></li>
+                <li><a href="../logout.html">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <h1>Welcome, <span id="usernameDisplay">User</span>!</h1>
+            <div class="profile-details">
+                <h2>Your Profile Information</h2>
+                <p><strong>Username:</strong> <span id="usernameInfo"></span></p>
+                <p><strong>Email:</strong> <span id="emailInfo"></span></p>
+            </div>
+
+            <div class="actions">
+                <button id="logoutButton">Logout</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 uRecipe - All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Ensure the user is logged in
+        const username = localStorage.getItem('currentUser');
+        if (!username || username.trim() === '') {
+            alert('You must log in first!');
+            window.location.href = '/uRecipe-main/front-end/pages/login/login.html';
+        } else {
+            try {
+                // Retrieve user data
+                const userData = JSON.parse(localStorage.getItem(username));
+
+                // Validate retrieved data
+                if (!userData || !userData.email) {
+                    throw new Error('Invalid user data');
+                }
+
+                // Populate profile information
+                document.getElementById('usernameDisplay').textContent = username;
+                document.getElementById('usernameInfo').textContent = username;
+                document.getElementById('emailInfo').textContent = userData.email;
+            } catch (error) {
+                console.error(error);
+                alert('An error occurred. Please log in again.');
+                window.location.href = '/uRecipe-main/front-end/pages/login/login.html';
+            }
+        }
+
+        // Logout functionality
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            localStorage.removeItem('currentUser'); // Clear the current session
+            alert('You have been logged out!');
+            window.location.href = '/uRecipe-main/front-end/pages/login/login.html'; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
+
