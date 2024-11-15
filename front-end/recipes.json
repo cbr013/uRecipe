@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Spaghetti Carbonara",
+        "title": "Spaghetti Carbonara",
         "description": "A quick and delicious Italian classic.",
         "image": "recipe1.jpg",
         "ingredients": [
@@ -20,7 +20,7 @@
     },
     {
         "id": 2,
-        "name": "Chicken Tacos",
+        "title": "Chicken Tacos",
         "description": "Spicy and flavorful tacos to satisfy your cravings.",
         "image": "recipe2.jpg",
         "ingredients": [
@@ -39,7 +39,7 @@
     },
     {
         "id": 3,
-        "name": "Spaghetti Bolognese",
+        "title": "Spaghetti Bolognese",
         "description": "A classic Italian dish with rich, meaty sauce.",
         "image": "recipe3.jpg",
         "ingredients": [
@@ -61,7 +61,7 @@
     },
     {
         "id": 4,
-        "name": "Vegetable Stir-Fry",
+        "title": "Vegetable Stir-Fry",
         "description": "A quick and healthy stir-fry loaded with fresh veggies.",
         "image": "recipe4.jpg",
         "ingredients": [
@@ -84,7 +84,7 @@
     },
     {
         "id": 5,
-        "name": "Grilled Salmon",
+        "title": "Grilled Salmon",
         "description": "Perfectly grilled salmon with a hint of lemon.",
         "image": "recipe5.jpg",
         "ingredients": [
@@ -104,7 +104,7 @@
     },
     {
         "id": 6,
-        "name": "Pancakes",
+        "title": "Pancakes",
         "description": "Fluffy pancakes perfect for a weekend breakfast.",
         "image": "recipe6.jpg",
         "ingredients": [
@@ -125,7 +125,7 @@
     },
     {
         "id": 7,
-        "name": "Beef Stroganoff",
+        "title": "Beef Stroganoff",
         "description": "Creamy and savory beef stroganoff served over noodles.",
         "image": "recipe7.jpg",
         "ingredients": [
@@ -148,7 +148,7 @@
     },
     {
         "id": 8,
-        "name": "Caesar Salad",
+        "title": "Caesar Salad",
         "description": "Crisp romaine lettuce tossed with Caesar dressing and croutons.",
         "image": "recipe8.jpg",
         "ingredients": [
@@ -169,7 +169,7 @@
     },
     {
         "id": 9,
-        "name": "Shrimp Scampi",
+        "title": "Shrimp Scampi",
         "description": "Delicious shrimp cooked in a garlic butter sauce and served over pasta.",
         "image": "recipe9.jpg",
         "ingredients": [
@@ -191,7 +191,7 @@
     },
     {
         "id": 10,
-        "name": "Vegetarian Chili",
+        "title": "Vegetarian Chili",
         "description": "Hearty and spicy vegetarian chili packed with beans and veggies.",
         "image": "recipe10.jpg",
         "ingredients": [
