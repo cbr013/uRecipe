@@ -200,3 +200,64 @@ footer {
         width: 100%; /* Full width on smaller screens */
     }
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #45a049;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.account-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.account-btn:hover {
+    background-color: #0056b3;
+}
