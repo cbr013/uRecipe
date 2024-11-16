@@ -2,15 +2,33 @@
 let currentIndex = 0; // Start at the first recipe
 let recipes = []; // Array to hold recipes
 
-// Load Recipes
+// Load Recipes (from localStorage and server)
 async function loadRecipes() {
-    try {
-        const response = await fetch('../recipes.json'); // Path to JSON file
-        recipes = await response.json(); // Store recipes globally
-        displayRecipes(); // Display recipes in the carousel
-    } catch (error) {
-        console.error('Error loading recipes:', error);
+    const username = localStorage.getItem('currentUser');
+    if (!username) {
+        alert('You must log in first!');
+        window.location.href = '/uRecipe-main/front-end/pages/login/login.html';
+        return;
     }
+
+    // Load user-specific recipes from localStorage
+    const storedUserRecipes = JSON.parse(localStorage.getItem(username + '_recipes')) || [];
+    
+    // Fetch recipes from recipes.json (default server recipes)
+    try {
+        const response = await fetch('../recipes.json'); // Path to JSON file on server
+        if (response.ok) {
+            const serverRecipes = await response.json();
+            // Merge server recipes with user-specific recipes
+            recipes = [...serverRecipes, ...storedUserRecipes]; // Prioritize user recipes
+            // Store the merged list back to localStorage for future reference
+            localStorage.setItem('recipes', JSON.stringify(recipes)); // Store merged recipes
+        }
+    } catch (error) {
+        console.error('Error loading recipes from server:', error);
+    }
+
+    displayRecipes(); // Display recipes in the carousel
 }
 
 // Display Recipes in Carousel
@@ -22,10 +40,10 @@ function displayRecipes() {
     recipes.forEach((recipe) => {
         const recipeCard = document.createElement('div');
         recipeCard.classList.add('recipe-card');
-        recipeCard.setAttribute("data-recipe-name", recipe.name);
+        recipeCard.setAttribute("data-recipe-name", recipe.title);  // Use 'title' to match how recipes are stored
         recipeCard.innerHTML = `
-            <img src="${recipe.image}" alt="${recipe.name}">
-            <h3>${recipe.name}</h3>
+            <img src="${recipe.image || 'default_image.jpg'}" alt="${recipe.title}">
+            <h3>${recipe.title}</h3>
             <p>${recipe.description}</p>
             <a href="view_recipe.html?id=${recipe.id}" class="view-recipe-btn">View Recipe</a>
         `;
@@ -67,14 +85,14 @@ async function loadRecipeDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const recipeId = urlParams.get('id');
     try {
-        const response = await fetch('recipes.json'); // Update with the actual path
+        const response = await fetch('../recipes.json'); // Update with the correct path to the file
         const recipes = await response.json();
         const recipe = recipes.find(r => r.id == recipeId);
         if (recipe) {
             const recipeContainer = document.getElementById('recipeDetails');
             recipeContainer.innerHTML = `
-                <h1>${recipe.name}</h1>
-                <img src="${recipe.image}" alt="${recipe.name}">
+                <h1>${recipe.title}</h1>
+                <img src="${recipe.image}" alt="${recipe.title}">
                 <h2>Ingredients</h2>
                 <ul>
                     ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
@@ -90,7 +108,38 @@ async function loadRecipeDetails() {
     }
 }
 
+// Add a new recipe (simulated via localStorage and updating recipes.json)
+function addRecipe(newRecipe) {
+    const username = localStorage.getItem('currentUser');
+    if (!username) {
+        alert('You must log in first!');
+        return;
+    }
+
+    // Load user recipes from localStorage
+    const userRecipes = JSON.parse(localStorage.getItem(username + '_recipes')) || [];
+    userRecipes.push(newRecipe);  // Add new recipe to the local array
+    localStorage.setItem(username + '_recipes', JSON.stringify(userRecipes));  // Store updated recipes in localStorage
+
+    // Add the new recipe to the global recipes list (merging with server recipes)
+    recipes = [...recipes, newRecipe];  // Add new recipe to the list
+    displayRecipes();  // Re-display the recipes
+}
+
 // Event Listeners
 document.addEventListener('DOMContentLoaded', loadRecipes);
 document.getElementById('prevBtn').addEventListener('click', () => changeRecipe(-1));
 document.getElementById('nextBtn').addEventListener('click', () => changeRecipe(1));
+
+// Example of adding a new recipe (triggered by form or button)
+document.getElementById('addRecipeBtn').addEventListener('click', () => {
+    const newRecipe = {
+        id: Date.now(),  // Unique ID based on timestamp
+        title: 'New Recipe',
+        description: 'A delicious new recipe!',
+        image: 'path_to_image.jpg',
+        ingredients: ['ingredient1', 'ingredient2'],
+        instructions: ['Step 1', 'Step 2']
+    };
+    addRecipe(newRecipe);  // Add the new recipe
+});

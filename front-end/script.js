@@ -2,20 +2,15 @@
 let currentIndex = 0; // Start at the first recipe
 let recipes = []; // Array to hold recipes
 
-// Recipe Search Function
-function searchRecipes() {
-    const query = document.getElementById('searchInput').value;
-    if (query) {
-        window.location.href = `pages/search.html?query=${query}`;
-    }
-}
-
-
 // Load Recipes
 async function loadRecipes() {
     try {
-        const response = await fetch('recipes.json'); // Update with the actual path
+        const response = await fetch('recipes.json'); // Path to JSON file (same directory)
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         recipes = await response.json(); // Store recipes globally
+        console.log('Loaded recipes:', recipes); // Debugging: log recipes
         displayRecipes(); // Display recipes in the carousel
     } catch (error) {
         console.error('Error loading recipes:', error);
@@ -26,23 +21,31 @@ async function loadRecipes() {
 function displayRecipes() {
     const carouselContainer = document.getElementById('carouselContainer');
     carouselContainer.innerHTML = ''; // Clear existing content
+
+    if (recipes.length === 0) {
+        console.log('No recipes to display'); // Debugging: log no recipes
+        return; // Exit if no recipes are found
+    }
+
     // Loop through the recipes array and create recipe cards
     recipes.forEach((recipe) => {
         const recipeCard = document.createElement('div');
         recipeCard.classList.add('recipe-card');
-        recipeCard.setAttribute("data-recipe-name", recipe.name); // Set data attribute for searching
+        recipeCard.setAttribute("data-recipe-name", recipe.name);
         recipeCard.innerHTML = `
             <img src="${recipe.image}" alt="${recipe.name}">
             <h3>${recipe.name}</h3>
             <p>${recipe.description}</p>
-            <a href="pages/view_recipe.html?id=${recipe.id}" class="view-recipe-btn">View Recipe</a>
+            <a href="view_recipe.html?id=${recipe.id}" class="view-recipe-btn">View Recipe</a>
         `;
         carouselContainer.appendChild(recipeCard);
     });
-    updateCarousel(); // Update carousel to show the first set of recipes
+
+    // Update initial carousel display and set navigation limits
+    updateCarousel();
 }
 
-// Update Carousel Position
+// Update Carousel Display
 function updateCarousel() {
     const carouselContainer = document.getElementById('carouselContainer');
     const recipeCards = document.querySelectorAll('.recipe-card');
@@ -57,7 +60,7 @@ function updateCarousel() {
     document.querySelector('.next').disabled = currentIndex === recipeCards.length - 1 && recipeCards.length <= 1;
 }
 
-// Change Recipe (carousel navigation)
+// Carousel Navigation Function
 function changeRecipe(direction) {
     const recipeCards = document.querySelectorAll('.recipe-card');
     if (direction === 1) {
@@ -73,14 +76,14 @@ async function loadRecipeDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const recipeId = urlParams.get('id');
     try {
-        const response = await fetch('recipes.json'); // Update with the actual path
+        const response = await fetch('recipes.json'); // Path to JSON file
         const recipes = await response.json();
         const recipe = recipes.find(r => r.id == recipeId);
         if (recipe) {
             const recipeContainer = document.getElementById('recipeDetails');
             recipeContainer.innerHTML = `
-                <h1>${recipe.name}</h1>
-                <img src="${recipe.image}" alt="${recipe.name}">
+                <h1>${recipe.title}</h1>
+                <img src="${recipe.image}" alt="${recipe.title}">
                 <h2>Ingredients</h2>
                 <ul>
                     ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
@@ -96,9 +99,7 @@ async function loadRecipeDetails() {
     }
 }
 
-// Call loadRecipes on page load
+// Event Listeners
 document.addEventListener('DOMContentLoaded', loadRecipes);
-
-// Add event listeners for navigation buttons
 document.getElementById('prevBtn').addEventListener('click', () => changeRecipe(-1));
 document.getElementById('nextBtn').addEventListener('click', () => changeRecipe(1));

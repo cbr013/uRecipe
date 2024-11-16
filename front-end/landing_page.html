@@ -12,13 +12,17 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <a href="#">uRecipe</a>
+                    <a href="index.html">uRecipe</a>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="landing_page.html">Home</a></li>
-                    <li><a href="pages/view_recipe.html">Recipes</a></li>
-                    <li><a href="pages/login/login.html">Login</a></li>
-                </ul>
+                <div class="dropdown">
+                    <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
+                    <div class="dropdown-content">
+                        <a href="pages/view_recipe.html" aria-label="View Recipes">Recipes</a>
+                        <a href="pages/login/login.html" aria-label="Login Page">Login</a>
+                        <a href="/uRecipe-main/front-end/pages/login/login.html" class="account-btn" aria-label="User Profile">Account</a>
+                    </div>
+                </div>
+                
             </div>
         </nav>
     </header>
@@ -32,8 +36,8 @@
                 <p>Browse our collection of diverse recipes, plan your meals, and manage your ingredients effortlessly.</p>
                 <div class="search-bar">
                     <form id="searchForm" action="pages/search.html" method="get">
-                        <input type="text" id="searchInput" name="query" placeholder="Search for recipes...">
-                        <button type="submit">Find Recipes</button>
+                        <input type="text" id="searchInput" name="query" placeholder="Search for recipes..." required>
+                        <button type="submit" aria-label="Search Recipes">Find Recipes</button>
                     </form>    
                 </div>
             </div>
@@ -45,11 +49,11 @@
         <div class="container">
             <h2>Featured Recipes</h2>
             <div class="carousel">
-                <button class="prev" id="prevBtn">&#10094;</button>
+                <button class="prev" id="prevBtn" aria-label="Previous Recipe">&#10094;</button>
                 <div class="carousel-container" id="carouselContainer">
                     <!-- Recipe cards will be injected here -->
                 </div>
-                <button class="next" id="nextBtn">&#10095;</button>
+                <button class="next" id="nextBtn" aria-label="Next Recipe">&#10095;</button>
             </div>
         </div>
     </section>
