@@ -1,68 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Recipes - uRecipe</title>
-    <link rel="stylesheet" href="../styles.css">
-    <!-- Link to your existing CSS -->
-</head>
-
-<body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo"> <a href="/uRecipe-main/front-end/pages/user_home.html">uRecipe</a>
-            </div>
-            <ul class="nav-links">
-                <li> <a href="/uRecipe-main/front-end/pages/user_profile.html">Profile</a>
-                </li>
-                <li> <a href="/uRecipe-main/front-end/pages/user_recipes.html">Your Recipes</a>
-                </li>
-                <li> <a href="../meal_planner.html">Meal Planner</a>
-                </li>
-                <li> <a href="../logout.html">Log Out</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!-- Welcome Section -->
-    <section class="welcome-section">
-        <div class="container">
-            <h1>Welcome, <span id="usernameDisplay"></span>! Your Recipes</h1>
-        </div>
-    </section>
-    <!-- Recipe Form Section -->
-    <section class="recipe-form-section">
-        <div class="container">
-            <div id="recipeForm">
-                <h2>Create or Edit Recipe</h2>
-                <form id="recipeFormContent">
-                    <input type="text" id="recipeTitle" placeholder="Recipe Title" required>
-                    <textarea id="recipeDescription" placeholder="Recipe Description" required></textarea>
-                    <!-- Image Upload -->
-                    <label for="recipeImage">Upload an Image of Your Recipe:</label>
-                    <input type="file" id="recipeImage" accept="image/*">
-                    <button type="submit" id="saveRecipeButton">Save Recipe</button>
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- Your Recipes List -->
-    <section class="recipes-list-section">
-        <div class="container">
-            <h2>Your Recipes</h2>
-            <div id="recipeList"></div>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 uRecipe - All Rights Reserved</p>
-        </div>
-    </footer>
-    <script>
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Your Recipes - uRecipe</title>         
+        <link rel="stylesheet" href="../styles.css"> 
+        <!-- Link to your existing CSS -->         
+    </head>     
+    <body> 
+        <!-- Navbar -->         
+        <nav class="navbar"> 
+            <div class="container"> 
+                <div class="logo"> <a href="/uRecipe-main/front-end/pages/user_home.html">uRecipe</a> 
+                </div>                 
+                <ul class="nav-links"> 
+                    <li> <a href="/uRecipe-main/front-end/pages/user_profile.html">Profile</a> 
+                    </li>                     
+                    <li> <a href="/uRecipe-main/front-end/pages/user_recipes.html">Your Recipes</a> 
+                    </li>                     
+                    <li> <a href="../meal_planner.html">Meal Planner</a> 
+                    </li>                     
+                    <li> <a href="../logout.html">Log Out</a> 
+                    </li>                     
+                </ul>                 
+            </div>             
+        </nav>         
+        <!-- Welcome Section -->         
+        <section class="welcome-section"> 
+            <div class="container"> 
+                <h1>Welcome, <span id="usernameDisplay"></span>! Your Recipes</h1> 
+            </div>             
+        </section>         
+        <!-- Recipe Form Section -->         
+        <section class="recipe-form-section"> 
+            <div class="container"> 
+                <div id="recipeForm"> 
+                    <h2>Create or Edit Recipe</h2> 
+                    <form id="recipeFormContent"> 
+                        <div style="margin: 10px; padding: 10px;"> 
+                            <input type="text" id="recipeTitle" placeholder="Recipe Title" required> 
+                        </div>                         
+                        <div style="padding: 10px; margin: 10px;"> 
+                            <textarea id="recipeDescription" placeholder="Recipe Description" required></textarea> 
+                        </div>                         
+                        <div style="padding: 10px; margin: 10px;"> 
+                            <!-- Image Upload -->                             
+                            <label for="recipeImage">Upload an Image of Your Recipe:</label>                             
+                            <input type="file" id="recipeImage" accept="image/*" style="width: 184px;"> 
+                        </div>                         
+                        <button type="submit" id="saveRecipeButton">Save Recipe</button>                         
+                    </form>                     
+                </div>                 
+            </div>             
+        </section>         
+        <!-- Your Recipes List -->         
+        <section class="recipes-list-section"> 
+            <div class="container"> 
+                <h2>Your Recipes</h2> 
+                <div id="recipeList" class="recipeList"></div>                 
+            </div>             
+        </section>         
+        <!-- Footer -->         
+        <footer> 
+            <div class="container"> 
+                <p>&copy; 2024 uRecipe - All Rights Reserved</p> 
+            </div>             
+        </footer>         
+        <script>
         // Ensure user is logged in
         const username = localStorage.getItem('currentUser');
         if (!username) {
@@ -185,7 +189,6 @@
 
         // Initial rendering of recipes
         renderRecipes();
-    </script>
-</body>
-
+    </script>         
+    </body>     
 </html>

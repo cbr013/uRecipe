@@ -4,21 +4,6 @@
     margin: 0;
 }
 
-/* General Styling */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: rgb(52, 152, 219);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-
-    /* Ensure the body takes full height */
-}
-
 .container {
     width: 90%;
     max-width: 1200px;
@@ -549,12 +534,11 @@ button:hover {
 
 /* Footer */
 .recipe-container {
-    max-width: 600px;
-    margin: auto;
     background: #fff;
+    box-shadow: 0 4px 8px rgba(3, 2, 2, 0.29);
+    margin: 30px 40px 20px;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
 }
 
 .recipe-container img {
@@ -567,11 +551,13 @@ button:hover {
 /* Header styling */
 body {
     background-color: #D2B48C;
-
-    /* Tan color */
     text-align: center;
     position: relative;
-    padding-bottom: 0;
+    display: flex;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 header h1 {
@@ -721,6 +707,11 @@ header .logo a {
     font-size: 2rem;
     font-weight: bold;
     text-decoration: none;
+}
+
+.recipeList {
+    min-height: 200px;
+    padding: 10px;
 }
 
 /* Login Section Updates */
