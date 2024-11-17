@@ -31,10 +31,10 @@ function displayRecipes() {
     recipes.forEach((recipe) => {
         const recipeCard = document.createElement('div');
         recipeCard.classList.add('recipe-card');
-        recipeCard.setAttribute("data-recipe-name", recipe.name);
+        recipeCard.setAttribute("data-recipe-name", recipe.title);
         recipeCard.innerHTML = `
-            <img src="${recipe.image}" alt="${recipe.name}">
-            <h3>${recipe.name}</h3>
+            <img src="${recipe.image}" alt="${recipe.title}">
+            <h3>${recipe.title}</h3>
             <p>${recipe.description}</p>
             <a href="view_recipe.html?id=${recipe.id}" class="view-recipe-btn">View Recipe</a>
         `;
@@ -102,4 +102,4 @@ async function loadRecipeDetails() {
 // Event Listeners
 document.addEventListener('DOMContentLoaded', loadRecipes);
 document.getElementById('prevBtn').addEventListener('click', () => changeRecipe(-1));
-document.getElementById('nextBtn').addEventListener('click', () => changeRecipe(1));
+document.getElementById('nextBtn').addEventListener('click', () => changeRecipe(1));pe(1));
