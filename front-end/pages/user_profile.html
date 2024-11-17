@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile - uRecipe</title>
-    <link rel="stylesheet" href="../styles.css"> <!-- Link to your profile CSS file -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Link to your profile CSS file -->
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">
-                <a href="/uRecipe-main/front-end/pages/user_home.html">uRecipe</a>
+            <div class="logo"> <a href="/uRecipe-main/front-end/pages/user_home.html">uRecipe</a>
             </div>
             <ul class="nav-links">
-                <li><a href="/uRecipe-main/front-end/pages/user_profile.html">Profile</a></li>
-                <li><a href="/uRecipe-main/front-end/pages/user_recipes.html">Your Recipes</a></li>
-                <li><a href="../meal_planner.html">Meal Planner</a></li>
-                <li><a href="../logout.html">Log Out</a></li>
+                <li><a href="/uRecipe-main/front-end/pages/user_profile.html">Profile</a>
+                </li>
+                <li><a href="/uRecipe-main/front-end/pages/user_recipes.html">Your Recipes</a>
+                </li>
+                <li><a href="../meal_planner.html">Meal Planner</a>
+                </li>
+                <li><a href="../logout.html">Log Out</a>
+                </li>
             </ul>
         </div>
     </nav>
-
     <!-- Profile Section -->
     <section class="profile-section">
         <div class="container">
@@ -31,19 +36,17 @@
                 <p><strong>Username:</strong> <span id="usernameInfo"></span></p>
                 <p><strong>Email:</strong> <span id="emailInfo"></span></p>
             </div>
-
             <div class="actions">
                 <button id="logoutButton">Logout</button>
             </div>
         </div>
     </section>
-
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 uRecipe - All Rights Reserved</p>
         </div>
     </footer>
-
     <script>
         // Ensure the user is logged in
         const username = localStorage.getItem('currentUser');
@@ -79,6 +82,5 @@
         });
     </script>
 </body>
+
 </html>
-
-

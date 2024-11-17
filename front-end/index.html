@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>uRecipe - Discover New Recipes</title>
-    <link rel="stylesheet" href="front-end/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- Header Section -->
+    <!-- Navigation Bar -->
     <header>
-        <h1>uRecipe - Discover New Recipes</h1>
-        <div class="dropdown">
-            <button></button>
-            <div class="dropdown-content">
-                <a href="#account">Account</a>
-                <a href="featured-recipes.html">Featured Recipes</a>
-                <a href="recommended-recipes.html">Recommended Recipes</a>
+        <nav class="navbar">
+            <div class="container" style="padding: 10px;">
+                <div class="logo"> <a href="landing_page.html">uRecipe</a>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
+                    <div class="dropdown-content">
+                        <a href="pages/view_recipe.html" aria-label="View Recipes" style="text-align: center;">
+                            Recipes
+                        </a>
+                        <a href="pages/login/login.html" aria-label="Login Page" style="text-align: center;">
+                            Login
+                        </a>
+                        <a href="/uRecipe-main/front-end/pages/login/login.html" aria-label="User Profile"
+                            style="text-align: center;">
+                            Account
+                        </a>
+                        <!-- Only if logged in -->
+                    </div>
+                </div>
             </div>
-        </div>
+        </nav>
     </header>
+
+
 
     <!-- Login Form Section -->
     <div class="login-form">
-        <h2>Login to Your Account</h2>
+        <h2 style="margin-top: 19px; margin-bottom: 21px; font-size: 35px;">Login to Your Account</h2>
+    </div>
+    <div>
         <input type="text" id="username" placeholder="Username" required>
         <input type="password" id="password" placeholder="Password" required>
+    </div>
+    <div style="margin: 10px;">
         <button onclick="login()">Login</button>
         <button onclick="location.href='create-account.html'">Create Account</button>
         <button onclick="forgotPassword()">Forgot Password?</button>
     </div>
-
     <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 uRecipe - All Rights Reserved</p>
         </div>
     </footer>
-
     <script>
         function login() {
             // Implement login logic here
@@ -49,4 +68,5 @@
         }
     </script>
 </body>
+
 </html>

@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Recipes - uRecipe</title>
-    <link rel="stylesheet" href="../styles.css"> <!-- Link to your existing CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Link to your existing CSS -->
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">
-                <a href="/uRecipe-main/front-end/pages/user_home.html">uRecipe</a>
+            <div class="logo"> <a href="/uRecipe-main/front-end/pages/user_home.html">uRecipe</a>
             </div>
             <ul class="nav-links">
-                <li><a href="/uRecipe-main/front-end/pages/user_profile.html">Profile</a></li>
-                <li><a href="/uRecipe-main/front-end/pages/user_recipes.html">Your Recipes</a></li>
-                <li><a href="../meal_planner.html">Meal Planner</a></li>
-                <li><a href="../logout.html">Log Out</a></li>
+                <li> <a href="/uRecipe-main/front-end/pages/user_profile.html">Profile</a>
+                </li>
+                <li> <a href="/uRecipe-main/front-end/pages/user_recipes.html">Your Recipes</a>
+                </li>
+                <li> <a href="../meal_planner.html">Meal Planner</a>
+                </li>
+                <li> <a href="../logout.html">Log Out</a>
+                </li>
             </ul>
         </div>
     </nav>
-
     <!-- Welcome Section -->
     <section class="welcome-section">
         <div class="container">
             <h1>Welcome, <span id="usernameDisplay"></span>! Your Recipes</h1>
         </div>
     </section>
-
     <!-- Recipe Form Section -->
     <section class="recipe-form-section">
         <div class="container">
@@ -37,17 +41,14 @@
                 <form id="recipeFormContent">
                     <input type="text" id="recipeTitle" placeholder="Recipe Title" required>
                     <textarea id="recipeDescription" placeholder="Recipe Description" required></textarea>
-
                     <!-- Image Upload -->
                     <label for="recipeImage">Upload an Image of Your Recipe:</label>
                     <input type="file" id="recipeImage" accept="image/*">
-
                     <button type="submit" id="saveRecipeButton">Save Recipe</button>
                 </form>
             </div>
         </div>
     </section>
-
     <!-- Your Recipes List -->
     <section class="recipes-list-section">
         <div class="container">
@@ -55,13 +56,12 @@
             <div id="recipeList"></div>
         </div>
     </section>
-
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 uRecipe - All Rights Reserved</p>
         </div>
     </footer>
-
     <script>
         // Ensure user is logged in
         const username = localStorage.getItem('currentUser');
@@ -88,7 +88,7 @@
             userRecipes.forEach((recipe, index) => {
                 const recipeItem = document.createElement('div');
                 recipeItem.classList.add('recipe-card'); // Apply card style
-                
+
                 recipeItem.innerHTML = `
                     <div class="recipe-card-content">
                         ${recipe.image ? `<img src="${recipe.image}" alt="${recipe.title}" class="recipe-card-image">` : ''}
@@ -105,7 +105,7 @@
         }
 
         // Function to handle form submission for creating/editing a recipe
-        document.getElementById('recipeFormContent').addEventListener('submit', function(e) {
+        document.getElementById('recipeFormContent').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const title = document.getElementById('recipeTitle').value.trim();
@@ -117,7 +117,7 @@
             let imageURL = '';
             if (imageFile) {
                 const reader = new FileReader();
-                reader.onload = function(event) {
+                reader.onload = function (event) {
                     imageURL = event.target.result; // Get the base64 image URL
 
                     const recipe = { title, description, image: imageURL };
@@ -187,4 +187,5 @@
         renderRecipes();
     </script>
 </body>
+
 </html>

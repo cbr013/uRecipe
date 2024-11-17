@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uRecipe - Featured Recipes</title>
-    <link rel="stylesheet" href="front-end/styles.css">
-</head>
-<body>
-    <!-- Header Section -->
-    <header>
-        <h1>Featured Recipes</h1>
-        <a href="index.html" class="back-link">&#8592; Back to Home</a> <!-- Link to homepage -->
-    </header>
-
-    <!-- Featured Recipes Content -->
-    <section class="featured-recipes">
-        <h2>Check out our Featured Recipes!</h2>
-        <!-- Add recipe cards or content here -->
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 uRecipe - All Rights Reserved</p>
-        </div>
-    </footer>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>uRecipe - Featured Recipes</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <header>
+            <nav class="navbar">
+                <div class="container" style="padding: 10px;">
+                    <div class="logo"> <a href="landing_page.html">uRecipe</a>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
+                        <div class="dropdown-content">
+                            <a href="pages/view_recipe.html" aria-label="View Recipes" style="text-align: center;">
+                            Recipes </a>
+                            <a href="pages/login/login.html" aria-label="Login Page" style="text-align: center;">
+                            Login </a>
+                            <a href="/uRecipe-main/front-end/pages/login/login.html" aria-label="User Profile" style="text-align: center;">
+                            Account </a>
+                            <!-- Only if logged in -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Featured Recipes Content -->
+        <section class="featured-recipes">
+            <h2>Check out our Featured Recipes!</h2>
+            <!-- Add recipe cards or content here -->
+        </section>
+        <!-- Featured Recipes Carousel -->
+        <section class="featured-recipes" id="recipeList">
+            <div class="container">
+                <h2 style="font-size: 40px;">Featured Recipes</h2>
+                <div class="carousel">
+                    <button class="prev" id="prevBtn" aria-label="Previous Recipe">&#10094;</button>
+                    <div class="carousel-container" id="carouselContainer">
+                        <!-- Recipe cards will be injected here -->
+                    </div>
+                    <button class="next" id="nextBtn" aria-label="Next Recipe">&#10095;</button>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 uRecipe - All Rights Reserved</p>
+            </div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
 </html>

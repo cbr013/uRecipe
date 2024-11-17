@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Results</title>
-    <link rel="stylesheet" href="../styles.css"> <!-- Your stylesheet -->
-</head>
-<body>
-
-    <!-- Search Section -->
-    <section class="search-section">
-        <div class="container">
-            <h1>Search for Recipes</h1>
-            <form id="searchForm" action="search.html" method="get">
-                <input type="text" id="searchInput" name="query" placeholder="Search for recipes...">
-                <button type="submit">Search</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Search Results Section -->
-    <section class="search-results">
-        <div class="container">
-            <h2>Search Results for "<span id="searchQuery"></span>"</h2>
-            <div class="results-container" id="resultsContainer">
-                <!-- Search results will be injected here -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Results</title>
+        <link rel="stylesheet" href="../styles.css">
+        <!-- Your stylesheet -->
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <header>
+            <nav class="navbar">
+                <div class="container" style="padding: 10px;">
+                    <div class="logo"> <a href="../landing_page.html">uRecipe</a>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
+                        <div class="dropdown-content">
+                            <a href="pages/view_recipe.html" aria-label="View Recipes" style="text-align: center;">
+                            Recipes </a>
+                            <a href="pages/login/login.html" aria-label="Login Page" style="text-align: center;">
+                            Login </a>
+                            <a href="/uRecipe-main/front-end/pages/login/login.html" aria-label="User Profile" style="text-align: center;">
+                            Account </a>
+                            <!-- Only if logged in -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="container">
+                <h1>Search for Recipes</h1>
+                <form id="searchForm" action="search.html" method="get">
+                    <input type="text" id="searchInput" name="query" placeholder="Search for recipes...">
+                    <button type="submit">Search</button>
+                </form>
             </div>
-        </div>
-    </section>  
-
-    <script src="search.js"></script> <!-- Your search script -->
-</body>
+        </section>
+        <!-- Search Results Section -->
+        <section class="search-results">
+            <div class="container">
+                <h2>Search Results for "<span id="searchQuery"></span>"</h2>
+                <div class="results-container" id="resultsContainer">
+                    <!-- Search results will be injected here -->
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 uRecipe - All Rights Reserved</p>
+            </div>
+        </footer>
+        <script src="search.js"></script>
+        <!-- Your search script -->
+    </body>
 </html>
