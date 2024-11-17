@@ -9,25 +9,46 @@
 </head>
 
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav class="navbar">
-            <div class="container" style="padding: 10px;">
-                <div class="logo">
-                    <a href="index.html">uRecipe</a>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
-                    <div class="dropdown-content"><a href="pages/view_recipe.html" aria-label="View Recipes"
-                            style="text-align: center;">Recipes</a><a href="pages/login/login.html"
-                            aria-label="Login Page" style="text-align: center;">Login</a><a
-                            href="/uRecipe-main/front-end/pages/login/login.html" aria-label="User Profile"
-                            style="text-align: center;">Account</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+    <!-- Header Section/Navigation Bar -->         
+    <header> 
+        <nav class="navbar"> 
+            <div class="container" style="padding: 10px;"> 
+                <div class="logo"> <a href="landing_page.html">uRecipe</a> 
+                </div>                     
+                <div class="dropdown"> 
+                    <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>                         
+                    <div class="dropdown-content">
+                        <a href="pages/view_recipe.html" aria-label="View Recipes" style="text-align: center;"> 
+                           Recipes
+                        </a>
+                        <a href="pages/login/login.html" aria-label="Login Page" style="text-align: center;"> 
+                            Login
+                        </a>
+                        <a href="account.html" aria-label="User Profile" style="text-align: center;"> 
+                            Account
+                        </a> 
+                        <!-- Only if logged in -->
+                        <a href="pages/user_recipes.html" aria-label="User Recipes" style="text-align: center;"> 
+                            My Recipes
+                        </a>
+                        <a href="pages/user_profile.html" aria-label="User Profile" style="text-align: center;">
+                            My Account
+                        </a>
+                        <a href="pages/create_recipe.html" aria-label="Create Recipe" style="text-align: center;">
+                            Add Recipe
+                        </a>
+                        <a href="pages/login/login.html" aria-label="Log out" style="text-align: center;"> 
+                            Log out
+                        </a> 
+                    </div>                         
+                </div>                     
+            </div>                 
+        </nav>             
     </header>
+        
+        
+
+
     <!-- Account Banner Section -->
     <section class="account-banner">
         <h2>Account Page</h2>
