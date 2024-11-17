@@ -7,53 +7,54 @@
     <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="/uRecipe-main/front-end/landing_page.html">uRecipe</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Login Section -->
     <section class="login-section">
-        <div class="container">
-            <h1>Login to uRecipe</h1>
+        <div class="login-container">
+            <h2>Login to uRecipe</h2>
             <form id="loginForm" method="post">
                 <input type="text" id="username" placeholder="Username" required>
                 <input type="password" id="password" placeholder="Password" required>
                 <button type="submit" id="loginButton">Login</button>
             </form>
-            <p class="signup-link">
-                Don't have an account? <a href="signup.html">Sign up here</a>
-            </p>
-            <!-- Guest Option -->
+            <p class="signup-link">Don't have an account? <a href="signup.html">Sign up here</a></p>
             <a href="/uRecipe-main/front-end/landing_page.html" class="guest-btn">Continue as Guest</a>
         </div>
     </section>
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', (event) => {
-            event.preventDefault(); // Prevent the form's default behavior
-    
+            event.preventDefault();
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value.trim();
-    
-            // Retrieve user data from localStorage
             const user = JSON.parse(localStorage.getItem(username));
-    
+
             if (!user) {
                 alert('User not found! Please sign up first.');
                 return;
             }
-    
             if (user.password === password) {
-                // Save the current user in localStorage
                 localStorage.setItem('currentUser', username);
                 alert('Login successful! Redirecting to home page...');
-                window.location.href = '/uRecipe-main/front-end/pages/user_home.html'; // Redirect to user_home.html
+                window.location.href = '/uRecipe-main/front-end/pages/user_home.html';
             } else {
                 alert('Invalid password. Please try again.');
             }
         });
 
-        // Guest Button Click Event
-        document.querySelector('.guest-btn').addEventListener('click', function (event) {
-            // Optional: Mark the user as a guest using localStorage or sessionStorage
+        document.querySelector('.guest-btn').addEventListener('click', function () {
             localStorage.setItem('userStatus', 'guest');
         });
     </script>
-    
 </body>
 </html>
