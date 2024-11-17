@@ -15,14 +15,13 @@
                     <a href="index.html">uRecipe</a>
                 </div>
                 <div class="dropdown">
-                    <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
+                    <button class="dropbtn" aria-label="Menu" onclick="toggleDropdown()">Menu &#9662;</button>
                     <div class="dropdown-content">
-                        <a href="pages/view_recipe.html" aria-label="View Recipes">Recipes</a>
+                        <a href="/uRecipe-main/front-end/pages/login/login.html" aria-label="View Recipes">Recipes</a>
                         <a href="pages/login/login.html" aria-label="Login Page">Login</a>
                         <a href="/uRecipe-main/front-end/pages/login/login.html" class="account-btn" aria-label="User Profile">Account</a>
                     </div>
                 </div>
-                
             </div>
         </nav>
     </header>
@@ -66,5 +65,24 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Function to toggle the dropdown menu visibility
+        function toggleDropdown() {
+            const dropdownContent = document.querySelector('.dropdown-content');
+            dropdownContent.classList.toggle('show');
+        }
+
+        // Close the dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.querySelectorAll('.dropdown-content');
+                dropdowns.forEach(function(dropdown) {
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 </html>
