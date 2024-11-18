@@ -1,35 +1,27 @@
-document.getElementById("loginButton").addEventListener("click", function() {
-    console.log("Login button clicked!"); // Check if button click is registered
+document.getElementById("loginButton").addEventListener("click", async function(event) {
+    event.preventDefault(); // Prevent the form's default behavior
 
-    const usernameInput = document.getElementById("username").value;
-    const passwordInput = document.getElementById("password").value;
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    // Check if inputs are correctly selected
-    console.log("Username:", usernameInput);
-    console.log("Password:", passwordInput);
-
-    fetch('users.json') // Adjust path if necessary
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
-        .then(users => {
-            const user = users.find(user => 
-                user.username === usernameInput && user.password === passwordInput
-            );
-
-            if (user) {
-                console.log("Login successful, redirecting to user home page.");
-                window.location.href = "../user_home.html"; // Adjust path if necessary
-            } else {
-                console.log("Invalid username or password.");
-                alert("Invalid username or password.");
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching user data:", error);
-            alert("There was an error logging in. Please try again.");
+    try {
+        const response = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
         });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert('Login successful! Redirecting to home page...');
+            localStorage.setItem('token', data.token); // Save JWT token to localStorage
+            window.location.href = '../user_home.html'; // Redirect to user home page
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        alert('An error occurred during login. Please try again.');
+    }
 });

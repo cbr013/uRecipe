@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recipe Details</title>
-        <link rel="stylesheet" href="../styles.css">
-        <!-- Link to your recipe stylesheet -->
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uRecipe - Recipes</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style></style>
+</head>
+
+<body>
+
     <!-- Header Section/Navigation Bar -->
     <header>
         <nav class="navbar">
@@ -49,21 +52,43 @@
     </header>
 
 
-
-
-
-
-        <div class="recipe-container">
-            <h1 id="recipeName">Recipe Name</h1>
-            <img id="recipeImage" src="" alt="Recipe Image">
-            <p id="recipeDescription">Recipe description...</p>
-            <h2>Ingredients</h2>
-            <ul id="ingredientsList"></ul>
-            <h2>Instructions</h2>
-            <ol id="instructionsList"></ol>
+    <!-- Recommended Recipes Content -->
+    <section class="recommended-recipes">
+        <h2>Discover our Recommended Recipes!</h2>
+        <div class="recipe-card" onclick="location.href='recipe1.html'">
+            <h3 class="recipe-title">Recipe 1</h3>
+            <p class="recipe-description">A delicious and healthy recipe to try!</p>
         </div>
-        <script src="view_recipe.js"></script>
-        <script src="script.js"></script> 
-        <!-- Link to your JavaScript file -->
-    </body>
+        <div class="recipe-card" onclick="location.href='recipe2.html'">
+            <h3 class="recipe-title">Recipe 2</h3>
+            <p class="recipe-description">A quick and easy recipe for dinner!</p>
+        </div>
+        <div class="recipe-card" onclick="location.href='recipe3.html'">
+            <h3 class="recipe-title">Recipe 3</h3>
+            <p class="recipe-description">Perfect for a family gathering!</p>
+        </div>
+        <div class="recipe-card" onclick="location.href='recipe4.html'">
+            <h3 class="recipe-title">Recipe 4</h3>
+            <p class="recipe-description">An exquisite dessert to end your meal!</p>
+        </div>
+        <div class="recipe-card" onclick="location.href='recipe5.html'">
+            <h3 class="recipe-title">Recipe 5</h3>
+            <p class="recipe-description">A refreshing salad recipe!</p>
+        </div>
+        <div class="recipe-card" onclick="location.href='recipe6.html'">
+            <h3 class="recipe-title">Recipe 6</h3>
+            <p class="recipe-description">A hearty soup for chilly days!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 uRecipe - All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+
 </html>

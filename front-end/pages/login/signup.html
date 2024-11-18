@@ -7,28 +7,52 @@
         <link rel="stylesheet" href="../../styles.css">
     </head>
     <body>
-        <!-- Header Section/Navigation Bar -->
-        <header>
-            <nav class="navbar">
-                <div class="container" style="padding: 10px;">
-                    <div class="logo"> <a href="../../landing_page.html">uRecipe</a>
-                    </div>
-                    <div class="dropdown">
-                        <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
-                        <div class="dropdown-content"> <a href="pages/view_recipe.html" aria-label="View Recipes" style="text-align: center;">
-                            Recipes </a> <a href="pages/login/login.html" aria-label="Login Page" style="text-align: center;">
-                            Login </a> <a href="/uRecipe-main/front-end/pages/login/login.html" aria-label="User Profile" style="text-align: center;">
-                            Account </a>
+    <!-- Header Section/Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container" style="padding: 10px;">
+                <div class="logo"> <a href="../../landing_page.html">uRecipe</a>
+                </div>
+                <div id="user-info" class="user-info" style="margin-right: 15px; font-size: 1.2em; color: #fff;"> </div>
+                <div class="dropdown">
+                    <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
+                    <div class="dropdown-content">
+                        <a href="../all-recipes.html" aria-label="View Recipes" style="text-align: center;">
+                            Recipes
+                        </a>
+                        <div id="notLoggedInLinks">
+                            <!-- Only if not logged in -->
+                            <a href="login.html" aria-label="Login Page" style="text-align: center;">
+                                Login
+                            </a>
+                        </div>
+                        <div id="loggedInLinks" style="display: none;">
                             <!-- Only if logged in -->
+                            <a href="../user_profile.html" aria-label="User Profile" style="text-align: center;">
+                                My Account
+                            </a>
+                            <a href="../user_recipes.html" aria-label="User Recipes" style="text-align: center;">
+                                My Recipes
+                            </a>
+                            <a href="../create_recipe.html" aria-label="Create Recipe" style="text-align: center;">
+                                Add Recipe
+                            </a>
+                            <a href="#" id="logoutLink" aria-label="Log out" style="text-align: center;">
+                                Log out
+                            </a>
                         </div>
                     </div>
                 </div>
-            </nav>
-        </header>
+            </div>
+        </nav>
+    </header>
+
+
         <section class="login-section">
             <div class="container">
                 <h1 style="color: #e9cfad; font-size: 30px;">Create a uRecipe Account</h1>
                 <form id="signupForm" method="post">
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
                     <input type="text" id="username" name="username" placeholder="Username" required>
                     <input type="email" id="email" name="email" placeholder="Email" required>
                     <input type="password" id="password" name="password" placeholder="Password" required>
@@ -48,25 +72,43 @@
             </div>
         </footer>
         <script>
-        document.getElementById('signupForm').addEventListener('submit', (event) => {
-            event.preventDefault(); // Prevent the form's default behavior
-
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-
-            if (password !== confirmPassword) {
-                alert('Passwords do not match!');
-                return;
-            }
-
-            // Save user data to localStorage
-            const user = { email, password };
-            localStorage.setItem(username, JSON.stringify(user));
-            alert('Signup successful! Redirecting to login page...');
-            window.location.href = 'login.html'; // Redirect to login page
-        });
-    </script>
+            document.getElementById('signupForm').addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent the form's default behavior
+            
+                const name = document.getElementById('name').value;
+                const username = document.getElementById('username').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+            
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+            
+                try {
+                    const response = await fetch('http://localhost:3000/api/users/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ name, username, email, password }),
+                    });
+            
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert('Signup successful! Redirecting to login page...');
+                        window.location.href = 'login.html'; // Redirect to login page
+                    } else {
+                        console.error('Registration failed:', data);
+                        alert(data.message);
+                    }
+                } catch (error) {
+                    console.error('Fetch error:', error);
+                    alert('An error occurred during signup. Please try again.');
+                }
+            });
+        </script>
+        <script src="script.js"></script> 
     </body>
 </html>

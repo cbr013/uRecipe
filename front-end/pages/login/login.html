@@ -7,24 +7,45 @@
         <link rel="stylesheet" href="../../styles.css">
     </head>
     <body>
-        <!-- Header Section/Navigation Bar -->
-        <header>
-            <nav class="navbar">
-                <div class="container" style="padding: 10px;">
-                    <div class="logo"> <a href="../../landing_page.html">uRecipe</a>
-                    </div>
-                    <div class="dropdown">
-                        <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
-                        <div class="dropdown-content"> <a href="pages/view_recipe.html" aria-label="View Recipes" style="text-align: center;">
-                            Recipes </a> <a href="pages/login/login.html" aria-label="Login Page" style="text-align: center;">
-                            Login </a> <a href="/uRecipe-main/front-end/pages/login/login.html" aria-label="User Profile" style="text-align: center;">
-                            Account </a>
+    <!-- Header Section/Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container" style="padding: 10px;">
+                <div class="logo"> <a href="../../landing_page.html">uRecipe</a>
+                </div>
+                <div id="user-info" class="user-info" style="margin-right: 15px; font-size: 1.2em; color: #fff;"> </div>
+                <div class="dropdown">
+                    <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
+                    <div class="dropdown-content">
+                        <a href="../all-recipes.html" aria-label="View Recipes" style="text-align: center;">
+                            Recipes
+                        </a>
+                        <div id="notLoggedInLinks">
+                            <!-- Only if not logged in -->
+                            <a href="login.html" aria-label="Login Page" style="text-align: center;">
+                                Login
+                            </a>
+                        </div>
+                        <div id="loggedInLinks" style="display: none;">
                             <!-- Only if logged in -->
+                            <a href="../user_profile.html" aria-label="User Profile" style="text-align: center;">
+                                My Account
+                            </a>
+                            <a href="../user_recipes.html" aria-label="User Recipes" style="text-align: center;">
+                                My Recipes
+                            </a>
+                            <a href="../create_recipe.html" aria-label="Create Recipe" style="text-align: center;">
+                                Add Recipe
+                            </a>
+                            <a href="#" id="logoutLink" aria-label="Log out" style="text-align: center;">
+                                Log out
+                            </a>
                         </div>
                     </div>
                 </div>
-            </nav>
-        </header>
+            </div>
+        </nav>
+    </header>
         <section class="login-section">
             <div class="container">
                 <h1 style="color: #e9cfad; font-size: 30px;">Login to uRecipe</h1>
@@ -45,35 +66,47 @@
             </div>
         </footer>
         <script>
-        document.getElementById('loginForm').addEventListener('submit', (event) => {
+        document.getElementById('loginForm').addEventListener('submit', async (event) => {
             event.preventDefault(); // Prevent the form's default behavior
 
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value.trim();
 
-            // Retrieve user data from localStorage
-            const user = JSON.parse(localStorage.getItem(username));
+            try {
+                const response = await fetch('http://localhost:3000/api/users/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password }),
+                });
 
-            if (!user) {
-                alert('User not found! Please sign up first.');
-                return;
+                const data = await response.json();
+                if (response.ok) {
+                    alert('Login successful! Redirecting to home page...');
+                    localStorage.setItem('token', data.token); // Save JWT token to localStorage
+                    localStorage.setItem('currentUser', username); // Save current user to localStorage
+                    window.location.href = '../user_home.html'; // Redirect to user home page
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert('An error occurred during login. Please try again.');
             }
+        });
 
-            if (user.password === password) {
-                // Save the current user in localStorage
-                localStorage.setItem('currentUser', username);
-                alert('Login successful! Redirecting to home page...');
-                window.location.href = '/uRecipe-main/front-end/pages/user_home.html'; // Redirect to user_home.html
+        // Check if user is already logged in
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                document.getElementById('loginLink').style.display = 'none';
+                document.getElementById('accountLink').style.display = 'block';
             } else {
-                alert('Invalid password. Please try again.');
+                document.getElementById('accountLink').style.display = 'none';
+                document.getElementById('loginLink').style.display = 'block';
             }
         });
-
-        // Guest Button Click Event
-        document.querySelector('.guest-btn').addEventListener('click', function (event) {
-            // Optional: Mark the user as a guest using localStorage or sessionStorage
-            localStorage.setItem('userStatus', 'guest');
-        });
-    </script>
+        </script>
+        <script src="script.js"></script> 
     </body>
 </html>

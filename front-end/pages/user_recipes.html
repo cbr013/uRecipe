@@ -8,23 +8,45 @@
         <!-- Link to your existing CSS -->         
     </head>     
     <body> 
-        <!-- Navbar -->         
-        <nav class="navbar"> 
-            <div class="container"> 
-                <div class="logo"> <a href="/uRecipe-main/front-end/pages/user_home.html">uRecipe</a> 
-                </div>                 
-                <ul class="nav-links"> 
-                    <li> <a href="/uRecipe-main/front-end/pages/user_profile.html">Profile</a> 
-                    </li>                     
-                    <li> <a href="/uRecipe-main/front-end/pages/user_recipes.html">Your Recipes</a> 
-                    </li>                     
-                    <li> <a href="../meal_planner.html">Meal Planner</a> 
-                    </li>                     
-                    <li> <a href="../logout.html">Log Out</a> 
-                    </li>                     
-                </ul>                 
-            </div>             
-        </nav>         
+    <!-- Header Section/Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container" style="padding: 10px;">
+                <div class="logo"> <a href="../landing_page.html">uRecipe</a>
+                </div>
+                <div id="user-info" class="user-info" style="margin-right: 15px; font-size: 1.2em; color: #fff;"> </div>
+                <div class="dropdown">
+                    <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
+                    <div class="dropdown-content">
+                        <a href="all-recipes.html" aria-label="View Recipes" style="text-align: center;">
+                            Recipes
+                        </a>
+                        <div id="notLoggedInLinks">
+                            <!-- Only if not logged in -->
+                            <a href="login/login.html" aria-label="Login Page" style="text-align: center;">
+                                Login
+                            </a>
+                        </div>
+                        <div id="loggedInLinks" style="display: none;">
+                            <!-- Only if logged in -->
+                            <a href="user_profile.html" aria-label="User Profile" style="text-align: center;">
+                                My Account
+                            </a>
+                            <a href="user_recipes.html" aria-label="User Recipes" style="text-align: center;">
+                                My Recipes
+                            </a>
+                            <a href="create_recipe.html" aria-label="Create Recipe" style="text-align: center;">
+                                Add Recipe
+                            </a>
+                            <a href="#" id="logoutLink" aria-label="Log out" style="text-align: center;">
+                                Log out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>  
         <!-- Welcome Section -->         
         <section class="welcome-section"> 
             <div class="container"> 
@@ -190,5 +212,6 @@
         // Initial rendering of recipes
         renderRecipes();
     </script>         
+    <script src="script.js"></script> 
     </body>     
 </html>
