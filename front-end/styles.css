@@ -539,6 +539,8 @@ button:hover {
 .profile-section {
     padding: 40px 20px;
     background-color: #f4f4f4;
+    border-radius: 59px;
+    margin: 30px;
 
     /* Light gray */
 }
