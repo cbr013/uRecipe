@@ -86,7 +86,7 @@
                     alert('Login successful! Redirecting to home page...');
                     localStorage.setItem('token', data.token); // Save JWT token to localStorage
                     localStorage.setItem('currentUser', username); // Save current user to localStorage
-                    window.location.href = '../user_home.html'; // Redirect to user home page
+                    window.location.href = '../../landing_page.html'; // Redirect to user home page
                 } else {
                     alert(data.message);
                 }

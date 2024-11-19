@@ -4,6 +4,136 @@
     margin: 0;
 }
 
+/* Header styling - Header styling - Header styling - Header styling - Header styling */
+header {
+    background-color: #1174c5;
+
+    /* Matches the navigation bar */
+    padding: 20px 0;
+    text-align: center;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+header .logo a {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+header h1 {
+    margin: 0;
+    color: #333;
+}
+
+header .logo a {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Dropdown Menu Styling for navbar/header */
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 40px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, border-radius 0.3s;
+    border-radius: 20px;
+}
+
+.dropbtn:hover,
+
+.dropbtn:focus {
+    background-color: #45a049;
+}
+
+.dropdown:hover .dropbtn {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Dropdown Content Animation */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #4CAF50;
+    transition: max-height 0.5s ease-out, background-color 0.5s ease-out, border-radius 0.5s;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+    max-height: 300px;
+    background-color: #fff;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo, .dropdown {
+    display: flex;
+    align-items: center;
+}
+
+/* END Header styling - END Header styling - END Header styling - END Header styling - END Header styling */
+
+/* Body styling - Body styling - Body styling - Body styling - Body styling */
+
+body {
+    background-color: #D2B48C;
+    text-align: center;
+    position: relative;
+    display: flex;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* END Body styling - END Body styling - END Body styling - END Body styling - END Body styling */
+
+/* Footer styling - Footer styling - Footer styling - Footer styling - Footer styling */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* END Footer styling - END Footer styling - END Footer styling - END Footer styling - END Footer styling */
+
 .scrollable-container {
     max-height: 300px;
     overflow-y: scroll;
@@ -49,9 +179,7 @@
     padding: 10px 20px;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     color: #333;
 }
 
@@ -62,8 +190,7 @@ p {
     padding-bottom: 5px;
 }
 
-ul,
-ol {
+ul, ol {
     margin-top: 10px;
     padding-left: 20px;
 }
@@ -149,20 +276,14 @@ li {
     border: 1px solid #ddd;
     width: 300px;
     border-radius: 5px;
-
-    /* Add rounded corners */
 }
 
 .search-bar button {
     padding: 10px 20px;
     background-color: #ff6347;
-
-    /* Tomato */
     color: #fff;
     border: none;
     border-radius: 5px;
-
-    /* Add rounded corners */
     cursor: pointer;
 }
 
@@ -175,81 +296,7 @@ li {
 .recipe-grid {
     display: flex;
     flex-wrap: wrap;
-
-    /* Enable wrapping */
     gap: 20px;
-}
-
-/* Footer */
-/* Dropdown Menu Styling */
-.dropdown {
-    position: relative;
-}
-
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 40px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s, border-radius 0.3s;
-    border-radius: 20px;
-}
-
-.dropbtn:hover,
-.dropbtn:focus {
-    background-color: #45a049;
-}
-
-.dropdown:hover .dropbtn {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-/* Dropdown Content Animation */
-.dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    background-color: #4CAF50;
-    transition: max-height 0.5s ease-out, background-color 0.5s ease-out, border-radius 0.5s;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-
-.dropdown:hover .dropdown-content {
-    max-height: 300px;
-    background-color: #fff;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo,
-.dropdown {
-    display: flex;
-    align-items: center;
 }
 
 /* Carousel Styles */
@@ -270,7 +317,8 @@ li {
 }
 
 .carousel .prev,
-.carousel .next {
+
+.carousel .next {
     background-color: #333;
     border: none;
     color: white;
@@ -451,7 +499,8 @@ li {
 }
 
 .recipe-edit-button,
-.recipe-delete-button {
+
+.recipe-delete-button {
     background-color: #007BFF;
     color: white;
     padding: 10px 15px;
@@ -463,7 +512,8 @@ li {
 }
 
 .recipe-edit-button:hover,
-.recipe-delete-button:hover {
+
+.recipe-delete-button:hover {
     background-color: #0056b3;
 }
 
@@ -576,7 +626,6 @@ button:hover {
     background-color: #d9534f;
 }
 
-/* Footer */
 .recipe-container {
     background: #fff;
     box-shadow: 0 4px 8px rgba(3, 2, 2, 0.29);
@@ -592,22 +641,7 @@ button:hover {
     margin-bottom: 20px;
 }
 
-/* Header styling */
-body {
-    background-color: #D2B48C;
-    text-align: center;
-    position: relative;
-    display: flex;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    min-height: 100vh;
-    flex-direction: column;
-}
 
-header h1 {
-    margin: 0;
-    color: #333;
-}
 
 /* Account banner section */
 .account-banner {
@@ -643,15 +677,6 @@ header h1 {
     color: #fff;
     border: none;
     cursor: pointer;
-}
-
-/* Footer styling */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto;
 }
 
 .back-link {
@@ -690,7 +715,8 @@ footer {
 }
 
 .login-container input[type="text"],
-.login-container input[type="password"] {
+
+.login-container input[type="password"] {
     padding: 12px;
     font-size: 1em;
     border: 1px solid #ddd;
@@ -727,31 +753,7 @@ footer {
     text-decoration: underline;
 }
 
-header .logo a {
-    color: #fff;
-    font-size: 2rem;
-    font-weight: bold;
-    text-decoration: none;
-}
-
 /* Login Section Updates */
-/* Header Styling for Login Page */
-header {
-    background-color: #1174c5;
-
-    /* Matches the navigation bar */
-    padding: 20px 0;
-    text-align: center;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-}
-
-header .logo a {
-    color: #fff;
-    font-size: 2rem;
-    font-weight: bold;
-    text-decoration: none;
-}
 
 .recipeList {
     min-height: 200px;
@@ -792,7 +794,8 @@ header .logo a {
 }
 
 .login-container input[type="text"],
-.login-container input[type="password"] {
+
+.login-container input[type="password"] {
     padding: 12px;
     font-size: 1em;
     border: 1px solid #ddd;
