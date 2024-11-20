@@ -1,0 +1,353 @@
+[
+    {
+        "id": 1,
+        "title": "Spaghetti Carbonara",
+        "description": "A quick and delicious Italian classic.",
+        "image": "recipe1.jpg",
+        "ingredients": [
+            "Spaghetti",
+            "Eggs",
+            "Pancetta",
+            "Parmesan cheese",
+            "Pepper"
+        ],
+        "instructions": [
+            "Cook spaghetti.",
+            "Fry pancetta.",
+            "Mix eggs and cheese.",
+            "Combine all with pepper."
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Chicken Tacos",
+        "description": "Spicy and flavorful tacos to satisfy your cravings.",
+        "image": "recipe2.jpg",
+        "ingredients": [
+            "Chicken breast",
+            "Taco shells",
+            "Lettuce",
+            "Tomato",
+            "Cheese",
+            "Salsa"
+        ],
+        "instructions": [
+            "Cook chicken.",
+            "Prepare taco shells.",
+            "Fill with ingredients."
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Spaghetti Bolognese",
+        "description": "A classic Italian dish with rich, meaty sauce.",
+        "image": "recipe3.jpg",
+        "ingredients": [
+            "Spaghetti",
+            "Ground beef",
+            "Tomato sauce",
+            "Onion",
+            "Garlic",
+            "Olive oil",
+            "Parmesan cheese"
+        ],
+        "instructions": [
+            "Cook spaghetti according to package instructions.",
+            "In a pan, sauté onion and garlic in olive oil.",
+            "Add ground beef and cook until browned.",
+            "Stir in tomato sauce and simmer for 15 minutes.",
+            "Serve sauce over spaghetti and top with Parmesan cheese."
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Vegetable Stir-Fry",
+        "description": "A quick and healthy stir-fry loaded with fresh veggies.",
+        "image": "recipe4.jpg",
+        "ingredients": [
+            "Broccoli",
+            "Carrots",
+            "Bell peppers",
+            "Snap peas",
+            "Soy sauce",
+            "Garlic",
+            "Ginger",
+            "Olive oil"
+        ],
+        "instructions": [
+            "Chop vegetables into bite-sized pieces.",
+            "Heat olive oil in a large pan or wok.",
+            "Add garlic and ginger, and sauté until fragrant.",
+            "Add vegetables and stir-fry until tender but crisp.",
+            "Drizzle with soy sauce and toss to coat."
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Grilled Salmon",
+        "description": "Perfectly grilled salmon with a hint of lemon.",
+        "image": "recipe5.jpg",
+        "ingredients": [
+            "Salmon fillets",
+            "Lemon",
+            "Olive oil",
+            "Salt",
+            "Pepper",
+            "Fresh herbs (optional)"
+        ],
+        "instructions": [
+            "Preheat grill to medium heat.",
+            "Brush salmon fillets with olive oil and season with salt and pepper.",
+            "Grill salmon skin-side down for 6-8 minutes, then flip and grill for another 2-4 minutes.",
+            "Squeeze fresh lemon juice over the salmon and serve with herbs if desired."
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Pancakes",
+        "description": "Fluffy pancakes perfect for a weekend breakfast.",
+        "image": "recipe6.jpg",
+        "ingredients": [
+            "Flour",
+            "Baking powder",
+            "Milk",
+            "Egg",
+            "Butter",
+            "Maple syrup"
+        ],
+        "instructions": [
+            "In a bowl, mix flour and baking powder.",
+            "Whisk in milk, egg, and melted butter until smooth.",
+            "Heat a lightly oiled griddle or pan over medium-high heat.",
+            "Pour batter onto the griddle and cook until bubbles form, then flip and cook the other side.",
+            "Serve with maple syrup and butter."
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Beef Stroganoff",
+        "description": "Creamy and savory beef stroganoff served over noodles.",
+        "image": "recipe7.jpg",
+        "ingredients": [
+            "Beef strips",
+            "Mushrooms",
+            "Onion",
+            "Sour cream",
+            "Beef broth",
+            "Egg noodles",
+            "Butter"
+        ],
+        "instructions": [
+            "Cook egg noodles according to package instructions.",
+            "In a pan, sauté onion and mushrooms in butter until soft.",
+            "Add beef strips and cook until browned.",
+            "Stir in beef broth and simmer for 10 minutes.",
+            "Remove from heat and stir in sour cream.",
+            "Serve over egg noodles."
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Caesar Salad",
+        "description": "Crisp romaine lettuce tossed with Caesar dressing and croutons.",
+        "image": "recipe8.jpg",
+        "ingredients": [
+            "Romaine lettuce",
+            "Caesar dressing",
+            "Parmesan cheese",
+            "Croutons",
+            "Lemon juice",
+            "Olive oil",
+            "Garlic"
+        ],
+        "instructions": [
+            "Chop romaine lettuce and place in a large bowl.",
+            "Drizzle with Caesar dressing and toss to coat.",
+            "Add Parmesan cheese, croutons, and a squeeze of lemon juice.",
+            "Toss again and serve immediately."
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Shrimp Scampi",
+        "description": "Delicious shrimp cooked in a garlic butter sauce and served over pasta.",
+        "image": "recipe9.jpg",
+        "ingredients": [
+            "Shrimp",
+            "Garlic",
+            "Butter",
+            "White wine",
+            "Lemon",
+            "Spaghetti",
+            "Parsley"
+        ],
+        "instructions": [
+            "Cook spaghetti according to package instructions.",
+            "In a large pan, melt butter and sauté garlic until fragrant.",
+            "Add shrimp and cook until pink.",
+            "Pour in white wine and squeeze in lemon juice. Simmer for 5 minutes.",
+            "Serve shrimp over spaghetti and garnish with parsley."
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Vegetarian Chili",
+        "description": "Hearty and spicy vegetarian chili packed with beans and veggies.",
+        "image": "recipe10.jpg",
+        "ingredients": [
+            "Kidney beans",
+            "Black beans",
+            "Bell peppers",
+            "Onion",
+            "Garlic",
+            "Tomato sauce",
+            "Chili powder",
+            "Cumin"
+        ],
+        "instructions": [
+            "In a large pot, sauté onion, bell peppers, and garlic until softened.",
+            "Add beans, tomato sauce, chili powder, and cumin.",
+            "Simmer for 30 minutes, stirring occasionally.",
+            "Serve hot with toppings like sour cream, cheese, or avocado."
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Quick and Easy Chicken Parmesan",
+        "description": "If you love the taste of crispy chicken, warm marinara sauce, and melty mozzarella cheese, then you will love this recipe. This is my Quick and Easy Chicken Parmesan– a better-for-you take on the classic Italian dish that comes together in under 30 minutes. It’s baked, not fried, giving it a healthier spin, but is still packed with all of the flavor that you know and love. Serve it over a bed of pasta, and you have the perfect, restaurant-quality dinner, ready in minutes.",
+        "image": "",
+        "ingredients": [
+            "Chicken Breasts: Boneless, skinless chicken breasts are the key to making the perfect chicken parmesan!",
+        "Kosher Salt & Black Pepper: A pinch of salt and pepper adds the perfect flavor to the chicken.",
+        "Eggs: For the breadcrumbs to stick to the chicken breasts, you’ll first want to dredge them in an egg wash.",
+        "Panko Breadcrumbs: Breadcrumbs are what gives the Chicken Parmesan it's perfect, golden crust. If you want to make this recipe gluten-free, you can substitute gluten-free breadcrumbs instead.",
+        "Italian Breadcrumbs: In addition to the panko breadcrumbs, you’ll also want to use Italian breadcrumbs. If you don’t have them, you can make your own by combining traditional breadcrumbs with some Italian seasoning. It’s easy!",
+        "Parmesan Cheese: After all, it wouldn’t be Chicken Parmesan without the parmesan cheese! Freshly grated parmesan cheese adds the best flavor to this recipe, so I highly recommend it.",
+        "Cooking Spray: Pick your favorite cooking spray and use it in this recipe! I like to opt for a healthier cooking spray, such as olive oil spray or avocado oil spray.",
+        "Marinara Sauce: Warm, hearty marinara sauce is a key ingredient in Chicken Parmesan. I like using Rao’s for the best flavor!",
+        "Mozzarella Cheese: Shredded mozzarella cheese makes this dish perfectly cheesy. Don’t skip it!",
+        "Fresh Parsley: I love to finish off this dish with a garnish of chopped fresh parsley, for both color and flavor."
+        ],
+        "instructions": [
+        "To make this chicken parmesan, start by preheating your oven to 425 F. Next, prepare the chicken breasts. Pat the chicken breasts dry with a paper towel, then place them between sheets of plastic wrap and pound them thin, until they’re approximately 1/2 inch in thickness. Then, season them with the kosher salt and black pepper.",
+        "Next, crack the eggs into a small bowl and whisk them to combine. In a separate bowl, add the panko bread crumbs, italian bread crumbs, and parmesan cheese, and mix to combine. Coat the chicken breasts by first dipping them into the bowl with the egg wash, and then dipping them into the bowl with the bread crumbs. Repeat until both of the chicken breasts are fully coated in the breadcrumbs.",
+        "Then, transfer the coated chicken breasts to a baking sheet. Spray the tops of the chicken breasts with cooking spray, transfer them to the oven, and bake them for 15 minutes. While the chicken is baking, line a separate baking sheet with parchment paper and pour the marinara sauce on top.",
+        "Then, top with the shredded mozzarella cheese. Place the tray into the oven with the chicken and bake it for 8-10 minutes. If you want the cheese to be browned, you can broil it for just 1 minute at the end, but watch it carefully so that it doesn’t burn.",
+        "Once the time is up, remove the trays from the oven. Transfer the chicken breasts to a plate, then pour the marinara and cheese mixture on top. Garnish with fresh parsley (if desired) then serve and enjoy!"
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Good New Orleans Creole Gumbo",
+        "description": "I am going to give you my Creole gumbo recipe. I learned to cook from my mother and grandmother who were born and raised in New Orleans and really knew how to cook. Most of the time, you could not get them to write down their recipes because they used a 'pinch' of this and 'just enough of that' and so on. This recipe is a combination of both of their recipes which I have added to over the years. Serve over hot cooked rice.",
+        "image": "",
+        "ingredients": [
+            "1 cup all-purpose flour",
+        "¾ cup bacon drippings",
+        "1 cup coarsely chopped celery",
+        "1 large onion, coarsely chopped",
+        "1 large green bell pepper, coarsely chopped",
+        "2 cloves garlic, minced",
+        "1 pound andouille sausage, sliced",
+        "3 quarts water",
+        "6 cubes beef bouillon",
+        "1 tablespoon white sugar",
+        "salt to taste",
+        "2 tablespoons hot pepper sauce (such as Tabasco), or to taste",
+        "½ teaspoon Cajun seasoning blend (such as Tony Chachere's)",
+        "4 bay leaves",
+        "½ teaspoon dried thyme leaves",
+        "1 (14.5 ounce) can stewed tomatoes",
+        "1 (6 ounce) can tomato sauce",
+        "4 teaspoons file powder, divided",
+        "2 tablespoons bacon drippings",
+        "2 (10 ounce) packages frozen cut okra, thawed",
+        "2 tablespoons distilled white vinegar",
+        "1 pound lump crabmeat",
+        "3 pounds uncooked medium shrimp, peeled and deveined",
+        "2 tablespoons Worcestershire sauce"
+        ],
+        "instructions": [
+            "Make the roux: Whisk together flour and 3/4 cup bacon drippings in a large, heavy saucepan over medium-low heat until smooth. Cook roux, whisking constantly, until it turns a rich mahogany brown color. This can take 20 to 30 minutes; watch heat carefully and whisk constantly or roux will burn. Remove from heat; continue whisking until mixture stops cooking.",
+            "Make the gumbo: Place celery, onion, green bell pepper, and garlic into the work bowl of a food processor, and pulse until all vegetables are very finely chopped.",
+            "Stir vegetables into roux, and mix in sliced sausage. Cook over medium-low heat, stirring constantly, until vegetables are tender, 10 to 15 minutes. Remove from heat and set aside.",
+             "Combine water and beef bouillon cubes in a large Dutch oven or soup pot and bring to a boil over medium-high heat. Stir until bouillon cubes dissolve, then whisk roux mixture into the boiling water.",
+             "Reduce heat to a simmer and mix in sugar, salt, hot pepper sauce, Cajun seasoning, bay leaves, thyme, stewed tomatoes, and tomato sauce. Simmer soup over low heat for 1 hour; mix in 2 teaspoons of file gumbo powder at the 45-minute mark.",
+             "Meanwhile, melt 2 tablespoons bacon drippings in a skillet over medium heat. Add okra and vinegar and cook for 15 minutes; remove okra with a slotted spoon, and stir into the simmering gumbo.",
+             "Mix in crabmeat, shrimp, and Worcestershire sauce, and simmer until flavors have blended, 45 more minutes. Stir in 2 more teaspoons of file gumbo powder just before serving.",
+             "Serve hot and enjoy!"
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Easy Homemade Lasagna",
+        "description": "In this classic lasagna recipe, sheets of pasta are layered with a cheesy filling, a rich meaty tomato sauce, and more cheese and then baked until bubbly and browned.",
+        "image": "",
+        "ingredients": [
+            "Cheese Filling: For this classic lasagna recipe, the cheese filling has ricotta and parmesan with seasonings. You can make homemade ricotta cheese or replace it with cottage cheese.",
+            "Meat: I use both Italian sausage and ground beef for great flavor. If using all beef, add ¼ teaspoon of fennel seeds and some Italian seasoning to the meat mixture for flavor, or make my homemade Italian sausage.",
+            "Sauce: To keep this sauce quick, I use pasta sauce or marinara sauce (it’s easy to make from scratch with crushed tomatoes and canned tomatoes if you’d prefer). If using store-bought sauce, I love Rao’s for its flavor.",
+            "Spinach (variation): Spinach is optional but delicious in lasagna. For spinach lasagna, thaw 10oz of frozen spinach, squeeze out the moisture, and add it along with the cheese layer."
+        ],
+        "instructions": [
+            "Boil pasta: In a large pot of salted water boil lasagna noodles per the recipe below.",
+            "Prepare meat sauce: Cook sausage and beef with onion and garlic. Drain well, add the pasta sauce (I love this brand) & simmer it for a few minutes to thicken.",
+            "Combine cheese mixture: Stir the cheese mixture together in a bowl.",
+            "Layer & bake: Layer the meat sauce and cheese mixture with lasagna noodles and bake until the top of the lasagna is golden brown."
+        ]
+    },   
+    {
+        "id": 14,
+        "title": "Traditional Peanut Butter and Jelly",
+        "description": "Nothing fancy, just a classic. Either smooth or crunchy peanut butter is acceptable. Classically, the jelly is either strawberry or grape.",
+        "image": "",
+        "ingredients": [
+            "2 slices sandwich bread",
+            "2 tablespoons peanut butter",
+            "2 teaspoons grape jelly or 2 teaspoons strawberry jam"
+        ],
+        "instructions": [
+             "Spread the peanut butter on one piece of bread.",
+              "Spread the jelly on the other side.",
+              "Put the two pieces of bread together to form a sandwich.",
+            "Toddler adaptation: cut off crusts before serving."    
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Chick-fil-A Crispy Chicken Sandwhich copycat",
+        "description": "This Chick-fil-A crispy chicken sandwich with homemade Chick-fil-A sauce is the perfect copycat recipe of the classic sandwich we all love!",
+        "image": "",
+        "ingredients": [
+            "Chicken breasts (cut to size)",
+            "Pickle Juice",
+            "Flour",
+            "Powdered Sugar",
+            "Paprika",
+            "Black Pepper",
+            "Chili Powder",
+            "Salt",
+            "Baking Powder",
+            "Egg",
+            "Milk",
+            "Bread crumb mixture",
+            "Mayonnaise",
+            "Dijon mustard",
+            "Yellow mustard",
+                "Honey",
+            "BBQ sauce",
+            "Garlic powder",
+            "Paprika",
+            "Lemon juice"
+        ],
+        "instructions": [
+            "Marinate the chicken. Place chicken breast halves in pickle juice/water marinade, in the refrigerator for 30 minutes.",
+            "Combine dry ingredients. Combine flour, powdered sugar, paprika, black pepper, chili powder, salt, and baking powder.",
+            "Make egg wash. In another bowl mix the milk, and egg.",
+            "Coat the chicken: Dip the marinated chicken into the egg mixture, and then coat in the flour breading mixture. Then repeat this step and dip that same chicken tender back into the egg mixture and then back into the flour again! Yep, this double dipping is how we’re making a super yummy, crispy sandwich.",
+            "Pan Fry. Place chicken in hot oil in a sauce pan and fry for 3-4 minutes on each side. Remove to paper towel to dry.",
+            "Preheat fryer to 370ºF. Grease the inside basket/rack of the air fryer and place two coated chicken breasts in the air fryer.  Lightly spray the top of the chicken.  Cook the chicken for 11-13 minutes, flipping halfway through cook time. Or 6b. Preheat oven to 450ºF.  Place a wire cooling rack on top of a baking sheet.  Place your coated chicken breasts on the wire rack and spray both sides lightly with olive oil. Bake the chicken for 12 minutes, flip and bake for another 15 minutes or until it’s cooked through.",
+            "Assemble Sandwich. Toast the sandwich buns. Grab the Chick-fil-A sauce and smooth it on both sides of the buns. Top with lettuce, cheese, and crispy chicken! Enjoy!"
+        ]
+    }  
+]
