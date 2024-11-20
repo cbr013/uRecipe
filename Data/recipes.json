@@ -1,0 +1,215 @@
+[
+    {
+        "id": 1,
+        "title": "Spaghetti Carbonara",
+        "description": "A quick and delicious Italian classic.",
+        "image": "recipe1.jpg",
+        "ingredients": [
+            "Spaghetti",
+            "Eggs",
+            "Pancetta",
+            "Parmesan cheese",
+            "Pepper"
+        ],
+        "instructions": [
+            "Cook spaghetti.",
+            "Fry pancetta.",
+            "Mix eggs and cheese.",
+            "Combine all with pepper."
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Chicken Tacos",
+        "description": "Spicy and flavorful tacos to satisfy your cravings.",
+        "image": "recipe2.jpg",
+        "ingredients": [
+            "Chicken breast",
+            "Taco shells",
+            "Lettuce",
+            "Tomato",
+            "Cheese",
+            "Salsa"
+        ],
+        "instructions": [
+            "Cook chicken.",
+            "Prepare taco shells.",
+            "Fill with ingredients."
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Spaghetti Bolognese",
+        "description": "A classic Italian dish with rich, meaty sauce.",
+        "image": "recipe3.jpg",
+        "ingredients": [
+            "Spaghetti",
+            "Ground beef",
+            "Tomato sauce",
+            "Onion",
+            "Garlic",
+            "Olive oil",
+            "Parmesan cheese"
+        ],
+        "instructions": [
+            "Cook spaghetti according to package instructions.",
+            "In a pan, sauté onion and garlic in olive oil.",
+            "Add ground beef and cook until browned.",
+            "Stir in tomato sauce and simmer for 15 minutes.",
+            "Serve sauce over spaghetti and top with Parmesan cheese."
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Vegetable Stir-Fry",
+        "description": "A quick and healthy stir-fry loaded with fresh veggies.",
+        "image": "recipe4.jpg",
+        "ingredients": [
+            "Broccoli",
+            "Carrots",
+            "Bell peppers",
+            "Snap peas",
+            "Soy sauce",
+            "Garlic",
+            "Ginger",
+            "Olive oil"
+        ],
+        "instructions": [
+            "Chop vegetables into bite-sized pieces.",
+            "Heat olive oil in a large pan or wok.",
+            "Add garlic and ginger, and sauté until fragrant.",
+            "Add vegetables and stir-fry until tender but crisp.",
+            "Drizzle with soy sauce and toss to coat."
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Grilled Salmon",
+        "description": "Perfectly grilled salmon with a hint of lemon.",
+        "image": "recipe5.jpg",
+        "ingredients": [
+            "Salmon fillets",
+            "Lemon",
+            "Olive oil",
+            "Salt",
+            "Pepper",
+            "Fresh herbs (optional)"
+        ],
+        "instructions": [
+            "Preheat grill to medium heat.",
+            "Brush salmon fillets with olive oil and season with salt and pepper.",
+            "Grill salmon skin-side down for 6-8 minutes, then flip and grill for another 2-4 minutes.",
+            "Squeeze fresh lemon juice over the salmon and serve with herbs if desired."
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Pancakes",
+        "description": "Fluffy pancakes perfect for a weekend breakfast.",
+        "image": "recipe6.jpg",
+        "ingredients": [
+            "Flour",
+            "Baking powder",
+            "Milk",
+            "Egg",
+            "Butter",
+            "Maple syrup"
+        ],
+        "instructions": [
+            "In a bowl, mix flour and baking powder.",
+            "Whisk in milk, egg, and melted butter until smooth.",
+            "Heat a lightly oiled griddle or pan over medium-high heat.",
+            "Pour batter onto the griddle and cook until bubbles form, then flip and cook the other side.",
+            "Serve with maple syrup and butter."
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Beef Stroganoff",
+        "description": "Creamy and savory beef stroganoff served over noodles.",
+        "image": "recipe7.jpg",
+        "ingredients": [
+            "Beef strips",
+            "Mushrooms",
+            "Onion",
+            "Sour cream",
+            "Beef broth",
+            "Egg noodles",
+            "Butter"
+        ],
+        "instructions": [
+            "Cook egg noodles according to package instructions.",
+            "In a pan, sauté onion and mushrooms in butter until soft.",
+            "Add beef strips and cook until browned.",
+            "Stir in beef broth and simmer for 10 minutes.",
+            "Remove from heat and stir in sour cream.",
+            "Serve over egg noodles."
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Caesar Salad",
+        "description": "Crisp romaine lettuce tossed with Caesar dressing and croutons.",
+        "image": "recipe8.jpg",
+        "ingredients": [
+            "Romaine lettuce",
+            "Caesar dressing",
+            "Parmesan cheese",
+            "Croutons",
+            "Lemon juice",
+            "Olive oil",
+            "Garlic"
+        ],
+        "instructions": [
+            "Chop romaine lettuce and place in a large bowl.",
+            "Drizzle with Caesar dressing and toss to coat.",
+            "Add Parmesan cheese, croutons, and a squeeze of lemon juice.",
+            "Toss again and serve immediately."
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Shrimp Scampi",
+        "description": "Delicious shrimp cooked in a garlic butter sauce and served over pasta.",
+        "image": "recipe9.jpg",
+        "ingredients": [
+            "Shrimp",
+            "Garlic",
+            "Butter",
+            "White wine",
+            "Lemon",
+            "Spaghetti",
+            "Parsley"
+        ],
+        "instructions": [
+            "Cook spaghetti according to package instructions.",
+            "In a large pan, melt butter and sauté garlic until fragrant.",
+            "Add shrimp and cook until pink.",
+            "Pour in white wine and squeeze in lemon juice. Simmer for 5 minutes.",
+            "Serve shrimp over spaghetti and garnish with parsley."
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Vegetarian Chili",
+        "description": "Hearty and spicy vegetarian chili packed with beans and veggies.",
+        "image": "recipe10.jpg",
+        "ingredients": [
+            "Kidney beans",
+            "Black beans",
+            "Bell peppers",
+            "Onion",
+            "Garlic",
+            "Tomato sauce",
+            "Chili powder",
+            "Cumin"
+        ],
+        "instructions": [
+            "In a large pot, sauté onion, bell peppers, and garlic until softened.",
+            "Add beans, tomato sauce, chili powder, and cumin.",
+            "Simmer for 30 minutes, stirring occasionally.",
+            "Serve hot with toppings like sour cream, cheese, or avocado."
+        ]
+    }
+   
+]
