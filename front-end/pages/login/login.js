@@ -5,7 +5,7 @@ document.getElementById("loginButton").addEventListener("click", async function(
     const password = document.getElementById("password").value.trim();
 
     try {
-        const response = await fetch('http://localhost:3000/login', {
+        const response = await fetch('http://localhost:3000/api/users/login', { // Updated endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

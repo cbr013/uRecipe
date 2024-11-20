@@ -51,7 +51,6 @@ header .logo a {
 }
 
 .dropbtn:hover,
-
 .dropbtn:focus {
     background-color: #45a049;
 }
@@ -100,15 +99,14 @@ header .logo a {
     align-items: center;
 }
 
-.logo, .dropdown {
+.logo,
+.dropdown {
     display: flex;
     align-items: center;
 }
 
 /* END Header styling - END Header styling - END Header styling - END Header styling - END Header styling */
-
 /* Body styling - Body styling - Body styling - Body styling - Body styling */
-
 body {
     background-color: #D2B48C;
     text-align: center;
@@ -121,9 +119,7 @@ body {
 }
 
 /* END Body styling - END Body styling - END Body styling - END Body styling - END Body styling */
-
 /* Footer styling - Footer styling - Footer styling - Footer styling - Footer styling */
-
 footer {
     background-color: #333;
     color: #fff;
@@ -133,7 +129,6 @@ footer {
 }
 
 /* END Footer styling - END Footer styling - END Footer styling - END Footer styling - END Footer styling */
-
 .scrollable-container {
     max-height: 300px;
     overflow-y: scroll;
@@ -172,6 +167,72 @@ footer {
     /* Make border consistent with background color */
 }
 
+.tag-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.tag-box:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.tag-box.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.selected-ingredients-section {
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 28px 150px 20px;
+    border-radius: 50px;
+}
+
+.ingredient-row {
+    display: flex;
+    align-items: center;
+
+    /* Align items vertically in the center */
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    /* Add some spacing between rows */
+}
+
+.ingredient-name {
+    margin-right: 20px;
+    font-size: 20px;
+    margin-left: 20px;
+
+    /* Add spacing between the name and the input field */
+}
+
+.ingredient-amount {
+    flex-grow: 1;
+    font-size: 20px;
+    margin: 2px 25px 2px 5px;
+
+    /* Allow the input to take the remaining space if necessary */
+}
+
+.bounding-box {
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px;
+    border-radius: 50px;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -179,7 +240,9 @@ footer {
     padding: 10px 20px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: #333;
 }
 
@@ -190,7 +253,8 @@ p {
     padding-bottom: 5px;
 }
 
-ul, ol {
+ul,
+ol {
     margin-top: 10px;
     padding-left: 20px;
 }
@@ -317,7 +381,6 @@ li {
 }
 
 .carousel .prev,
-
 .carousel .next {
     background-color: #333;
     border: none;
@@ -499,7 +562,6 @@ li {
 }
 
 .recipe-edit-button,
-
 .recipe-delete-button {
     background-color: #007BFF;
     color: white;
@@ -512,7 +574,6 @@ li {
 }
 
 .recipe-edit-button:hover,
-
 .recipe-delete-button:hover {
     background-color: #0056b3;
 }
@@ -641,8 +702,6 @@ button:hover {
     margin-bottom: 20px;
 }
 
-
-
 /* Account banner section */
 .account-banner {
     background-color: #D2B48C;
@@ -715,7 +774,6 @@ button:hover {
 }
 
 .login-container input[type="text"],
-
 .login-container input[type="password"] {
     padding: 12px;
     font-size: 1em;
@@ -754,7 +812,6 @@ button:hover {
 }
 
 /* Login Section Updates */
-
 .recipeList {
     min-height: 200px;
     padding: 10px;
@@ -794,7 +851,6 @@ button:hover {
 }
 
 .login-container input[type="text"],
-
 .login-container input[type="password"] {
     padding: 12px;
     font-size: 1em;

@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Logging out...");
         localStorage.removeItem('currentUser');
         alert('Logged out successfully!');
-        window.location.href = './landing_page.html';
+        window.location.href = '../landing_page.html';
     };
 
     if (logoutLink) {
@@ -162,3 +162,4 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.addEventListener('click', () => changeRecipe(1));
     }
 });
+

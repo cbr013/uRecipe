@@ -5,17 +5,21 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(express.json()); // Parse incoming JSON requests
-app.use(bodyParser.json()); // Additional body parsing middleware
-app.use(cors()); // Enable CORS for all requests
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(cors());
 
 // Import routes
 const userRoutes = require('./routes/userRoutes');
 const recipeRoutes = require('./routes/recipeRoutes');
+const ingredientsRoutes = require('./routes/ingredientsRoutes');
+const tagsRoutes = require('./routes/tagsRoutes'); // Import tags route
 
 // Use routes
 app.use('/api/users', userRoutes);
 app.use('/api/recipes', recipeRoutes);
+app.use('/api/ingredients', ingredientsRoutes);
+app.use('/api/tags', tagsRoutes); // Use tags route
 
 // Start the server
 app.listen(PORT, () => {

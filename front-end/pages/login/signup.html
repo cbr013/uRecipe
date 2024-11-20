@@ -47,12 +47,11 @@
         </nav>
     </header>
 
-
         <section class="login-section">
             <div class="container">
                 <h1 style="color: #e9cfad; font-size: 30px;">Create a uRecipe Account</h1>
                 <form id="signupForm" method="post">
-                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                    <input type="text" id="displayName" name="displayName" placeholder="Full Name" required>
                     <input type="text" id="username" name="username" placeholder="Username" required>
                     <input type="email" id="email" name="email" placeholder="Email" required>
                     <input type="password" id="password" name="password" placeholder="Password" required>
@@ -75,7 +74,7 @@
             document.getElementById('signupForm').addEventListener('submit', async (event) => {
                 event.preventDefault(); // Prevent the form's default behavior
             
-                const name = document.getElementById('name').value;
+                const displayName = document.getElementById('displayName').value;
                 const username = document.getElementById('username').value;
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
@@ -92,7 +91,7 @@
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ name, username, email, password }),
+                        body: JSON.stringify({ displayName, username, email, password }),
                     });
             
                     const data = await response.json();
