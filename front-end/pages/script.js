@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('usernameInfo').textContent = currentUser;
 
             // Assuming we have user data stored locally for email
-            const userData = JSON.parse(localStorage.getItem(currentUser));
+            const userData = localStorage.getItem(currentUser);
             if (userData && userData.email) {
                 document.getElementById('emailInfo').textContent = userData.email;
             } else {
