@@ -2,7 +2,9 @@
 
 D:\uRecipe-main\uRecipe\backend
   ├── controllers\
+	├── ingredientsController.js
 	├── recipeController.js
+	├── tagsController.js
 	├── userController.js
   ├── images\
 	├── profiles\
@@ -12,7 +14,9 @@ D:\uRecipe-main\uRecipe\backend
   ├── node_modules\
 	├── ...
   ├── routes\
+	├── ingredientsRoutes.js
 	├── recipeRoutes.js
+	├── tagsRoutes.js
 	├── userRoutes.js
   ├── database.sqlite
   ├── package.json
@@ -26,25 +30,20 @@ D:\uRecipe-main\uRecipe\front-end
 	├── login\
 		├── login.html
 		├── login.js
+		├── script.js
 		├── signup.html
-		├── users.json
 	├── create_recipe.html
+	├── create_recipe.js
 	├── edit_recipe.html
-	├── meal_planning.html
+	├── script.js
 	├── search.html
 	├── search.js
-	├── user_home.html
-	├── user_home.js
 	├── user_profile.html
 	├── user_recipes.html
 	├── view_recipe.html
 	├── view_recipe.js
-  ├── account.html
-  ├── featured-recipes.html
   ├── index.html
   ├── landing_page.html
-  ├── recipes.json
-  ├── recommended-recipes.html
   ├── script.js
   ├── styles.css
 

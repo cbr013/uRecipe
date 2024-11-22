@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Search Results</title>
-        <link rel="stylesheet" href="../styles.css">
-        <!-- Your stylesheet -->
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Your stylesheet -->
+</head>
+
+<body>
     <!-- Header Section/Navigation Bar -->
     <header>
         <nav class="navbar">
@@ -18,7 +20,7 @@
                 <div class="dropdown">
                     <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
                     <div class="dropdown-content">
-                        <a href="all-recipes.html" aria-label="View Recipes" style="text-align: center;">
+                        <a href="search.html" aria-label="View Recipes" style="text-align: center;">
                             Recipes
                         </a>
                         <div id="notLoggedInLinks">
@@ -47,36 +49,37 @@
             </div>
         </nav>
     </header>
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <p>&copy; 2024 uRecipe - All Rights Reserved</p>
-            </div>
-        </footer>
-        <script src="search.js"></script>
-        <script src="script.js"></script> 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const currentUser = localStorage.getItem('currentUser');
-                const notLoggedInLinks = document.getElementById('notLoggedInLinks');
-                const loggedInLinks = document.getElementById('loggedInLinks');
-                const userInfo = document.getElementById('user-info');
-    
-                if (currentUser) {
-                    notLoggedInLinks.style.display = 'none';
-                    loggedInLinks.style.display = 'block';
-                    userInfo.textContent = `Welcome, ${currentUser}`;
-                } else {
-                    notLoggedInLinks.style.display = 'block';
-                    loggedInLinks.style.display = 'none';
-                }
-    
-                document.getElementById('logoutLink').addEventListener('click', () => {
-                    localStorage.removeItem('currentUser');
-                    alert('Logged out successfully!');
-                    window.location.href = '/front-end/landing_page.html';
-                });
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 uRecipe - All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="search.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = localStorage.getItem('currentUser');
+            const notLoggedInLinks = document.getElementById('notLoggedInLinks');
+            const loggedInLinks = document.getElementById('loggedInLinks');
+            const userInfo = document.getElementById('user-info');
+
+            if (currentUser) {
+                notLoggedInLinks.style.display = 'none';
+                loggedInLinks.style.display = 'block';
+                userInfo.textContent = `Welcome, ${currentUser}`;
+            } else {
+                notLoggedInLinks.style.display = 'block';
+                loggedInLinks.style.display = 'none';
+            }
+
+            document.getElementById('logoutLink').addEventListener('click', () => {
+                localStorage.removeItem('currentUser');
+                alert('Logged out successfully!');
+                window.location.href = '/front-end/landing_page.html';
             });
-        </script>
-    </body>
+        });
+    </script>
+</body>
+
 </html>

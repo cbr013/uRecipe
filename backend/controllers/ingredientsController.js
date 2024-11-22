@@ -4,15 +4,15 @@ const db = require('../models/db');
 
 // Get all ingredients
 exports.getIngredients = (req, res) => {
-    const query = `SELECT * FROM ingredients ORDER BY name ASC`;
-    db.all(query, [], (err, ingredients) => {
+  const query = `SELECT ingredient_id, name FROM ingredients ORDER BY name ASC`;
+  db.all(query, [], (err, ingredients) => {
       if (err) {
-        res.status(500).json({ message: 'Error retrieving ingredients', error: err });
+          res.status(500).json({ message: 'Error retrieving ingredients', error: err });
       } else {
-        res.status(200).json(ingredients);
+          res.status(200).json(ingredients);
       }
-    });
-  };
+  });
+};
   
   // Add a new ingredient
   exports.addIngredient = (req, res) => {

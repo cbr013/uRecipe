@@ -13,11 +13,14 @@ router.get('/featured', recipeController.getFeaturedRecipes);
 // Route to get all recipes
 router.get('/all', recipeController.getAllRecipes);
 
-// Route to get a specific recipe by ID
-router.get('/:id', recipeController.getRecipeById);
-
 // Route to search recipes by name, ingredients, or tags
 router.get('/search', recipeController.getRecipeSearch);
+
+// Route to get all recipes by creator ID
+router.get('/creator/:creatorId', recipeController.getRecipesByCreator);
+
+// Route to get a specific recipe by ID
+router.get('/:id', recipeController.getRecipeById);
 
 // Route to update a recipe (by the author)
 router.put('/:id/update', recipeController.updateRecipe);

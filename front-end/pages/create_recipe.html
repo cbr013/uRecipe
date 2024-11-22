@@ -18,19 +18,19 @@
                 <div id="user-info" class="user-info" style="margin-right: 15px; font-size: 1.2em; color: #fff;"> </div>
                 <div class="dropdown">
                     <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
-                    <div class="dropdown-content"> <a href="all-recipes.html" aria-label="View Recipes"
+                    <div class="dropdown-content"> <a href="search.html" aria-label="View Recipes"
                             style="text-align: center;">
                             Recipes
                         </a>
                         <div id="notLoggedInLinks">
-                            <!-- Only if not logged in --> <a href="login/login.html" aria-label="Login Page"
-                                style="text-align: center;">
+                            <!-- Only if not logged in -->
+                            <a href="login/login.html" aria-label="Login Page" style="text-align: center;">
                                 Login
                             </a>
                         </div>
                         <div id="loggedInLinks" style="display: none;">
-                            <!-- Only if logged in --> <a href="user_profile.html" aria-label="User Profile"
-                                style="text-align: center;">
+                            <!-- Only if logged in -->
+                            <a href="user_profile.html" aria-label="User Profile" style="text-align: center;">
                                 My Account
                             </a> <a href="user_recipes.html" aria-label="User Recipes" style="text-align: center;">
                                 My Recipes
@@ -55,11 +55,11 @@
                 </div>
                 <div class="bounding-box">
                     <textarea id="recipeDescription" placeholder="Recipe Description" required
-                        style="font-size: 20px; width: 95%; padding-bottom: 0px; margin-top: 7px; min-height: 70px;"></textarea>
+                        style="font-size: 20px; width: 95%; padding-bottom: 0px; margin-top: 7px; min-height: 100px; min-width: 95%; max-width: 95%;"></textarea>
                 </div>
                 <div class="bounding-box">
                     <textarea id="recipeInstructions" placeholder="Recipe Instructions" required
-                        style="font-size: 20px; min-height: 70px; width: 95%;"></textarea>
+                        style="font-size: 20px; min-height: 200px; width: 95%; min-width: 95%; max-width: 95%;"></textarea>
                 </div>
                 <div class="bounding-box">
                     <input type="number" id="preparationTime" placeholder="Preparation Time (minutes)" required
@@ -84,7 +84,8 @@
                         <!-- Ingredients checkboxes will be injected here -->
                     </div>
                     <button type="button" id="addNewIngredientButton" style="margin-top: 10px;">Add New
-                        Ingredient</button>
+                        Ingredient
+                    </button>
                 </div>
                 <!-- Tags Section -->
                 <div class="bounding-box tags-section">
@@ -107,341 +108,7 @@
             <p>&copy; 2024 uRecipe - All Rights Reserved</p>
         </div>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentUser = localStorage.getItem('currentUser');
-            const notLoggedInLinks = document.getElementById('notLoggedInLinks');
-            const loggedInLinks = document.getElementById('loggedInLinks');
-            const userInfo = document.getElementById('user-info');
-
-            if (currentUser) {
-                notLoggedInLinks.style.display = 'none';
-                loggedInLinks.style.display = 'block';
-                userInfo.textContent = `Welcome, ${currentUser}`;
-            } else {
-                notLoggedInLinks.style.display = 'block';
-                loggedInLinks.style.display = 'none';
-            }
-
-            document.getElementById('logoutLink').addEventListener('click', () => {
-                localStorage.removeItem('currentUser');
-                alert('Logged out successfully!');
-                window.location.href = '/front-end/landing_page.html';
-            });
-
-            // Fetch ingredients from backend
-            async function fetchIngredients() {
-                try {
-                    console.log('Fetching ingredients...');
-                    const response = await fetch('http://localhost:3000/api/ingredients');
-                    const ingredients = await response.json();
-
-                    if (response.ok) {
-                        console.log('Ingredients fetched successfully:', ingredients);
-                        injectIngredients(ingredients);
-                    } else {
-                        console.error('Failed to fetch ingredients:', response.status, response.statusText, ingredients);
-                    }
-                } catch (error) {
-                    console.error('Error fetching ingredients:', error);
-                }
-            }
-
-            // Inject ingredients into the ingredients container
-            function injectIngredients(ingredients) {
-                const ingredientsContainer = document.getElementById('ingredientsContainer');
-                ingredientsContainer.innerHTML = ''; // Clear previous data
-                ingredients.forEach(ingredient => {
-                    const ingredientBox = document.createElement('div');
-                    ingredientBox.classList.add('ingredient-box');
-                    ingredientBox.textContent = ingredient.name;
-
-                    ingredientBox.addEventListener('click', function () {
-                        const selectedIngredients = document.querySelectorAll('.ingredient-box.selected');
-                        if (ingredientBox.classList.contains('selected')) {
-                            ingredientBox.classList.remove('selected');
-                        } else if (selectedIngredients.length < 40) {
-                            ingredientBox.classList.add('selected');
-                            addIngredientToSelectedList(ingredient.name);
-                        } else {
-                            alert('You can only select up to 40 ingredients.');
-                        }
-                    });
-
-                    ingredientsContainer.appendChild(ingredientBox);
-                });
-            }
-
-
-            // Add selected ingredient to the list with an input for quantity
-            function addIngredientToSelectedList(ingredientName) {
-                const selectedIngredientsContainer = document.getElementById('selectedIngredientsContainer');
-
-                // Create a container for the selected ingredient and its quantity input
-                const ingredientRow = document.createElement('div');
-                ingredientRow.classList.add('ingredient-row');
-
-                const ingredientNameDiv = document.createElement('div');
-                ingredientNameDiv.classList.add('ingredient-name');
-                ingredientNameDiv.textContent = ingredientName;
-
-                const ingredientAmountInput = document.createElement('input');
-                ingredientAmountInput.type = 'text';
-                ingredientAmountInput.placeholder = 'Enter amount (e.g., 200g)';
-                ingredientAmountInput.classList.add('ingredient-amount');
-                ingredientAmountInput.dataset.ingredientName = ingredientName;
-
-                // Append the name and input to the row
-                ingredientRow.appendChild(ingredientNameDiv);
-                ingredientRow.appendChild(ingredientAmountInput);
-
-                // Append the row to the container
-                selectedIngredientsContainer.appendChild(ingredientRow);
-            }
-
-
-            fetchIngredients(); // Call fetch function to get ingredients from backend
-
-            // Real-time filtering of ingredients
-            const ingredientSearchInput = document.getElementById('ingredientSearchInput');
-            ingredientSearchInput.addEventListener('input', filterIngredients);
-
-            function filterIngredients() {
-                const searchValue = ingredientSearchInput.value.toLowerCase();
-                const ingredientBoxes = document.querySelectorAll('.ingredient-box');
-
-                ingredientBoxes.forEach(box => {
-                    if (box.textContent.toLowerCase().includes(searchValue)) {
-                        box.style.display = 'block';
-                    } else {
-                        box.style.display = 'none';
-                    }
-                });
-            }
-
-            // Add new ingredient
-            document.getElementById('addNewIngredientButton').addEventListener('click', async () => {
-                const ingredientName = prompt("Enter the new ingredient name:");
-                if (!ingredientName) {
-                    console.warn('No ingredient name entered.');
-                    return;
-                }
-
-                try {
-                    console.log('Adding new ingredient:', ingredientName);
-                    const response = await fetch('http://localhost:3000/api/ingredients', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ name: ingredientName }),
-                    });
-
-                    const data = await response.json();
-                    if (response.ok) {
-                        console.log('Ingredient added successfully:', data);
-                        alert('Ingredient added successfully!');
-                        await fetchIngredients(); // Refresh ingredient list and wait for completion
-                    } else {
-                        console.error('Failed to add ingredient:', response.status, response.statusText, data);
-                        alert(`Failed to add ingredient: ${data.message}`);
-                    }
-                } catch (error) {
-                    console.error('Error adding ingredient:', error);
-                }
-            });
-
-            // Fetch tags from backend
-            async function fetchTags() {
-                try {
-                    console.log('Fetching tags...');
-                    const response = await fetch('http://localhost:3000/api/tags');
-                    const tags = await response.json();
-
-                    if (response.ok) {
-                        console.log('Tags fetched successfully:', tags);
-                        injectTags(tags);
-                    } else {
-                        console.error('Failed to fetch tags:', response.status, response.statusText, tags);
-                    }
-                } catch (error) {
-                    console.error('Error fetching tags:', error);
-                }
-            }
-
-            // Inject tags into the tags container
-            function injectTags(tags) {
-                const tagsContainer = document.getElementById('tagsContainer');
-                tagsContainer.innerHTML = ''; // Clear previous data
-                tags.forEach(tag => {
-                    const tagBox = document.createElement('div');
-                    tagBox.classList.add('tag-box');
-                    tagBox.textContent = tag.name;
-
-                    tagBox.addEventListener('click', function () {
-                        const selectedTags = document.querySelectorAll('.tag-box.selected');
-                        if (tagBox.classList.contains('selected')) {
-                            tagBox.classList.remove('selected');
-                        } else if (selectedTags.length < 3) {
-                            tagBox.classList.add('selected');
-                        } else {
-                            alert('You can only select up to 3 tags.');
-                        }
-                    });
-
-                    tagsContainer.appendChild(tagBox);
-                });
-            }
-
-            fetchTags(); // Call fetch function to get tags from backend
-
-            // Real-time filtering of tags
-            const tagSearchInput = document.getElementById('tagSearchInput');
-            tagSearchInput.addEventListener('input', filterTags);
-
-            function filterTags() {
-                const searchValue = tagSearchInput.value.toLowerCase();
-                const tagBoxes = document.querySelectorAll('.tag-box');
-
-                tagBoxes.forEach(box => {
-                    if (box.textContent.toLowerCase().includes(searchValue)) {
-                        box.style.display = 'block';
-                    } else {
-                        box.style.display = 'none';
-                    }
-                });
-            }
-
-            // Add new tag
-            document.getElementById('addNewTagButton').addEventListener('click', async () => {
-                const tagName = prompt("Enter the new tag name:");
-                if (!tagName) {
-                    console.warn('No tag name entered.');
-                    return;
-                }
-
-                try {
-                    console.log('Adding new tag:', tagName);
-                    const response = await fetch('http://localhost:3000/api/tags', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ name: tagName }),
-                    });
-
-                    const data = await response.json();
-                    if (response.ok) {
-                        console.log('Tag added successfully:', data);
-                        alert('Tag added successfully!');
-                        await fetchTags(); // Refresh tag list and wait for completion
-                    } else {
-                        console.error('Failed to add tag:', response.status, response.statusText, data);
-                        alert(`Failed to add tag: ${data.message}`);
-                    }
-                } catch (error) {
-                    console.error('Error adding tag:', error);
-                }
-            });
-
-            // On form submission, gather selected ingredients and their quantities
-            document.getElementById('createRecipeForm').addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                const currentUser = localStorage.getItem('currentUser');
-                if (!currentUser) {
-                    alert('You must be logged in to create a recipe.');
-                    return;
-                }
-
-                // Gather the rest of the form data
-                const selectedIngredients = [];
-                const ingredientRows = document.querySelectorAll('.ingredient-row');
-
-                ingredientRows.forEach(row => {
-                    const name = row.querySelector('.ingredient-name').textContent;
-                    const amount = row.querySelector('.ingredient-amount').value.trim();
-                    if (amount) {
-                        selectedIngredients.push({ name, amount });
-                    } else {
-                        alert(`Please enter an amount for ${name}`);
-                        return; // If any amount is missing, halt the form submission
-                    }
-                });
-
-                // Gather other form data
-                const title = document.getElementById('recipeTitle').value.trim();
-                const description = document.getElementById('recipeDescription').value.trim();
-                const instructions = document.getElementById('recipeInstructions').value.trim();
-                const preparationTime = parseInt(document.getElementById('preparationTime').value);
-
-                if (!title || !description || !instructions || !preparationTime) {
-                    alert('Please fill out all required fields.');
-                    return;
-                }
-
-                const recipeData = {
-                    creatorId: currentUser,  // Add the creatorId
-                    title,
-                    description,
-                    instructions,
-                    preparationTime,
-                    ingredients: selectedIngredients,
-                };
-
-                try {
-                    const response = await fetch('http://localhost:3000/api/recipes/create', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(recipeData),
-                    });
-
-                    const data = await response.json();
-                    if (response.ok) {
-                        alert('Recipe created successfully!');
-                        // Optionally redirect to another page or clear the form
-                    } else {
-                        console.error('Failed to create recipe:', response.status, response.statusText, data);
-                        alert(`Failed to create recipe: ${data.message}`);
-                    }
-                } catch (error) {
-                    console.error('Error creating recipe:', error);
-                }
-            });
-        });
-
-
-
-
-        // Ensure these functions are defined and ready to use
-        function filterIngredients() {
-            const searchValue = document.getElementById('ingredientSearchInput').value.toLowerCase();
-            const ingredientBoxes = document.querySelectorAll('.ingredient-box');
-
-            ingredientBoxes.forEach(box => {
-                if (box.textContent.toLowerCase().includes(searchValue)) {
-                    box.style.display = 'block';
-                } else {
-                    box.style.display = 'none';
-                }
-            });
-        }
-
-        function filterTags() {
-            const searchValue = document.getElementById('tagSearchInput').value.toLowerCase();
-            const tagBoxes = document.querySelectorAll('.tag-box');
-
-            tagBoxes.forEach(box => {
-                if (box.textContent.toLowerCase().includes(searchValue)) {
-                    box.style.display = 'block';
-                } else {
-                    box.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="create_recipe.js"></script>
     <script src="script.js"></script>
 </body>
 
