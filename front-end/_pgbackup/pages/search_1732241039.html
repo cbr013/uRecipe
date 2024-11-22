@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Your stylesheet -->
+</head>
+
+<body>
+    <!-- Header Section/Navigation Bar -->
+    <!-- Header Section/Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container" style="padding: 10px;">
+                <div class="logo"> <a href="../landing_page.html">uRecipe</a>
+                </div>
+                <div id="user-info" class="user-info" style="margin-right: 15px; font-size: 1.2em; color: #fff;"> </div>
+                <div class="dropdown">
+                    <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
+                    <div class="dropdown-content"> <a href="search.html" aria-label="View Recipes"
+                            style="text-align: center;">
+                            Recipes </a>
+                        <div id="notLoggedInLinks">
+                            <!-- Only if not logged in --> <a href="login/login.html" aria-label="Login Page"
+                                style="text-align: center;">
+                                Login </a>
+                        </div>
+                        <div id="loggedInLinks" style="display: none;">
+                            <!-- Only if logged in --> <a href="user_profile.html" aria-label="User Profile"
+                                style="text-align: center;">
+                                My Account </a> <a href="user_recipes.html" aria-label="User Recipes"
+                                style="text-align: center;">
+                                My Recipes </a> <a href="create_recipe.html" aria-label="Create Recipe"
+                                style="text-align: center;">
+                                Add Recipe </a> <a href="#" id="logoutLink" aria-label="Log out"
+                                style="text-align: center;">
+                                Log out </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Search Section -->
+    <section class="search-section bounding-box">
+        <h1>Search for Recipes</h1>
+        <form id="searchForm" action="search.html" method="get">
+            <input type="text" id="searchInput" name="query" placeholder="Search for recipes...">
+            <button type="submit">Search</button>
+        </form>
+    </section>
+    <!-- Ingredients Selection Section -->
+    <div class="bounding-box ingredients-selection">
+        <h2>Select Ingredients</h2>
+        <input type="text" id="ingredientSearchInput" placeholder="Search for ingredients..."
+            oninput="filterIngredients()">
+        <div id="ingredientsContainer" class="scrollable-container">
+            <!-- Ingredients checkboxes will be injected here -->
+        </div>
+        <p id="ingredientLimitWarning" style="color: red; display: none;">You can only select up to 10 ingredients. </p>
+    </div>
+    <!-- Tags Section -->
+    <div class="bounding-box tags-section">
+        <h2>Select Tags</h2>
+        <input type="text" id="tagSearchInput" placeholder="Search for tags..." oninput="filterTags()">
+        <div id="tagsContainer" class="scrollable-container">
+            <!-- Tags checkboxes will be injected here -->
+        </div>
+    </div>
+
+    <!-- Search Results Section -->
+    <section class="search-results bounding-box">
+        <div class="container">
+            <h2>Search Results</h2>
+            <div class="results-container grid-container" id="resultsContainer"
+                style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <!-- Search results will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 uRecipe - All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="search.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = localStorage.getItem('currentUser');
+            const notLoggedInLinks = document.getElementById('notLoggedInLinks');
+            const loggedInLinks = document.getElementById('loggedInLinks');
+            const userInfo = document.getElementById('user-info');
+
+            if (currentUser) {
+                notLoggedInLinks.style.display = 'none';
+                loggedInLinks.style.display = 'block';
+                userInfo.textContent = `Welcome, ${currentUser}`;
+            } else {
+                notLoggedInLinks.style.display = 'block';
+                loggedInLinks.style.display = 'none';
+            }
+
+            document.getElementById('logoutLink').addEventListener('click', () => {
+                localStorage.removeItem('currentUser');
+                alert('Logged out successfully!');
+                window.location.href = '/front-end/landing_page.html';
+            });
+        });
+    </script>
+    <!-- Your search script -->
+</body>
+
+</html>
