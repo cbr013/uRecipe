@@ -39,11 +39,14 @@ D:\uRecipe-main\uRecipe\front-end
 	├── search.html
 	├── search.js
 	├── user_profile.html
+	├── user_profilejs
 	├── user_recipes.html
+	├── user_recipes.js
 	├── view_recipe.html
 	├── view_recipe.js
   ├── index.html
   ├── landing_page.html
+  ├── landing_page.js
   ├── script.js
   ├── styles.css
 

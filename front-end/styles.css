@@ -363,47 +363,6 @@ li {
     gap: 20px;
 }
 
-/* Carousel Styles */
-.carousel {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-    padding-top: 30px;
-    margin-bottom: 12px;
-    padding-bottom: 30px;
-}
-
-.carousel .prev,
-.carousel .next {
-    background-color: #333;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 1.5em;
-    padding: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 12px;
-    position: absolute;
-    z-index: 2;
-    margin: 10px;
-}
-
-.carousel .prev {
-    left: 10px;
-}
-
-.carousel .next {
-    right: 10px;
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
     .recipe-card {
