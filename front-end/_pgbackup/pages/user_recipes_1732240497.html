@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Recipes - uRecipe</title>
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Link to your existing CSS -->
+</head>
+
+<body>
+    <!-- Header Section/Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container" style="padding: 10px;">
+                <div class="logo"> <a href="../landing_page.html">uRecipe</a>
+                </div>
+                <div id="user-info" class="user-info" style="margin-right: 15px; font-size: 1.2em; color: #fff;"> </div>
+                <div class="dropdown">
+                    <button class="dropbtn" aria-label="Menu">Menu &#9662;</button>
+                    <div class="dropdown-content"> <a href="search.html" aria-label="View Recipes"
+                            style="text-align: center;">
+                            Recipes
+                        </a>
+                        <div id="notLoggedInLinks">
+                            <!-- Only if not logged in --> <a href="login/login.html" aria-label="Login Page"
+                                style="text-align: center;">
+                                Login
+                            </a>
+                        </div>
+                        <div id="loggedInLinks" style="display: none;">
+                            <!-- Only if logged in --> <a href="user_profile.html" aria-label="User Profile"
+                                style="text-align: center;">
+                                My Account
+                            </a> <a href="user_recipes.html" aria-label="User Recipes" style="text-align: center;">
+                                My Recipes
+                            </a> <a href="create_recipe.html" aria-label="Create Recipe" style="text-align: center;">
+                                Add Recipe
+                            </a> <a href="#" id="logoutLink" aria-label="Log out" style="text-align: center;">
+                                Log out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Welcome Section -->
+    <section class="bounding-box">
+        <div class="container">
+            <h1>Welcome, <span id="usernameDisplay"></span> to your recipes!</h1>
+        </div>
+        <!-- Your Recipes List -->
+        <section class="recipes-list-section">
+            <div class="container">
+                <div class="recipe-container grid-container" id="recipeContainer"
+                    style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                    <!-- Search results will be injected here -->
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 uRecipe - All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        // Ensure user is logged in
+        const username = localStorage.getItem('currentUser');
+        if (!username) {
+            alert('You must log in first!');
+            window.location.href = '/uRecipe-main/front-end/pages/login/login.html';
+        } else {
+            document.getElementById('usernameDisplay').textContent = username;
+        }
+
+    </script>
+    <script src="user_recipes.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
