@@ -1,50 +1,47 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Extract the recipe ID from the URL
+//veiw_recipe.js
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the recipe ID from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const recipeId = urlParams.get('id');
+    
+    if (!recipeId) {
+        console.error('Recipe ID not found in URL.');
+        return;
+    }
 
-    if (recipeId) {
-        fetch('../recipes.json') // Adjust the path to your recipes.json file if necessary
-            .then(response => response.json())
-            .then(recipes => {
-                // Find the recipe with the matching ID
-                const recipe = recipes.find(r => r.id === parseInt(recipeId));
+    // Fetch the recipe details using the ID
+    async function fetchRecipeDetails() {
+        try {
+            const response = await fetch(`http://localhost:3000/api/recipes/${recipeId}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch recipe details.');
+            }
 
-                if (recipe) {
-                    displayRecipe(recipe);
-                } else {
-                    document.querySelector('.recipe-container').innerHTML = '<p>Recipe not found.</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error loading recipe:', error);
-                document.querySelector('.recipe-container').innerHTML = '<p>Error loading recipe. Please try again later.</p>';
+            const recipe = await response.json();
+
+            // Populate the HTML with the recipe data
+            document.getElementById('recipe-title').textContent = recipe.title;
+            document.getElementById('recipe-image').src = recipe.image || 'placeholder.jpg';
+            document.getElementById('recipe-description').textContent = recipe.description;
+            document.getElementById('recipe-prep-time').textContent = recipe.preparation_time;
+
+            // Populate ingredients
+            const ingredientsList = document.getElementById('recipe-ingredients');
+            const ingredients = JSON.parse(recipe.ingredients);
+            ingredients.forEach(ingredient => {
+                const li = document.createElement('li');
+                li.textContent = `${ingredient.amount} of ${ingredient.id}`;
+                ingredientsList.appendChild(li);
             });
-    } else {
-        document.querySelector('.recipe-container').innerHTML = '<p>No recipe selected.</p>';
+
+            // Populate instructions
+            document.getElementById('recipe-instructions').textContent = JSON.parse(recipe.instructions);
+
+        } catch (error) {
+            console.error('Error fetching recipe details:', error);
+        }
     }
 
-    // Function to display the recipe details
-    function displayRecipe(recipe) {
-        document.getElementById('recipeName').textContent = recipe.name;
-        document.getElementById('recipeImage').src = recipe.image;
-        document.getElementById('recipeImage').alt = recipe.name;
-        document.getElementById('recipeDescription').textContent = recipe.description;
-
-        // Display ingredients
-        const ingredientsList = document.getElementById('ingredientsList');
-        recipe.ingredients.forEach(ingredient => {
-            const li = document.createElement('li');
-            li.textContent = ingredient;
-            ingredientsList.appendChild(li);
-        });
-
-        // Display instructions
-        const instructionsList = document.getElementById('instructionsList');
-        recipe.instructions.forEach(instruction => {
-            const li = document.createElement('li');
-            li.textContent = instruction;
-            instructionsList.appendChild(li);
-        });
-    }
+    // Load recipe details
+    fetchRecipeDetails();
 });
