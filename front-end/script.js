@@ -6,7 +6,7 @@ let recipes = []; // Array to hold recipes
 async function loadRecipes() {
     try {
         console.log("Attempting to load recipes...");
-        const response = await fetch('../recipes.json'); // Use '../' to access from other pages
+        const response = await fetch('http://localhost:3000/api/recipes/featured'); // Use '../' to access from other pages
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

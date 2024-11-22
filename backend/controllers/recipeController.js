@@ -44,6 +44,20 @@ exports.createRecipe = (req, res) => {
     );
 };
 
+// Get the 5 newest recipes
+exports.getFeaturedRecipes = (req, res) => {
+    const query = `SELECT * FROM recipes WHERE is_hidden = 0 ORDER BY created_at DESC LIMIT 5`;
+    db.all(query, [], (err, rows) => { // Change the parameter name from 'recipes' to 'rows' to avoid confusion
+        if (err) {
+            console.error('Error fetching featured recipes:', err);
+            res.status(500).json({ message: 'Failed to get featured recipes', error: err.message });
+        } else {
+            const recipes = rows; // Assign the result to the 'recipes' variable
+            console.log('Fetched recipes:', recipes); // Log the recipes fetched
+            res.status(200).json(recipes); // Send the fetched recipes as the response
+        }
+    });
+};
 
 // Update a recipe (by the author)
 exports.updateRecipe = (req, res) => {
@@ -83,19 +97,6 @@ exports.updateRecipe = (req, res) => {
             }
         }
     );
-};
-
-// Get the 10 newest recipes
-exports.getFeaturedRecipes = (req, res) => {
-    const query = `SELECT * FROM recipes WHERE is_hidden = 0 ORDER BY created_at DESC LIMIT 10`;
-    db.all(query, [], (err, recipes) => {
-        if (err) {
-            console.error('Error fetching featured recipes:', err);
-            res.status(500).json({ message: 'Failed to get featured recipes', error: err.message });
-        } else {
-            res.status(200).json(recipes);
-        }
-    });
 };
 
 // Get all recipes
