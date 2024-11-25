@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', async () => {
     try {
+        const currentUserId = localStorage.getItem('currentUserId'); // Get current user ID from localStorage
+        
         // Replace this URL with the actual endpoint to get the user data
-        const response = await fetch('http://localhost:3000/api/users/1');
+        const response = await fetch(`http://localhost:3000/api/users/${currentUserId}`);
         
         if (!response.ok) {
             throw new Error('Failed to fetch user data');
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Logout Button
     document.getElementById('logoutButton').addEventListener('click', () => {
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('currentUserId');
         alert('Logged out successfully!');
         window.location.href = '../landing_page.html';
     });

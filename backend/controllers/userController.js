@@ -46,7 +46,7 @@ exports.login = (req, res) => {
       res.status(401).json({ message: 'Invalid password' });
     } else {
       const token = jwt.sign({ userId: user.user_id, role: user.role }, 'secret_key', { expiresIn: '1h' });
-      res.status(200).json({ token, message: 'Login successful' });
+      res.status(200).json({ token, userId: user.user_id, message: 'Login successful' });
     }
   });
 };

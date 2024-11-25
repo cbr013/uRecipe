@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutHandler = () => {
         console.log("Logging out...");
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('currentUserId');
         alert('Logged out successfully!');
         window.location.href = '../landing_page.html';
     };
