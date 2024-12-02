@@ -295,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Gather other form data
+        const isHidden = document.getElementById('isHidden').checked;
         const title = document.getElementById('recipeTitle').value.trim();
         const description = document.getElementById('recipeDescription').value.trim();
         const instructions = document.getElementById('recipeInstructions').value.trim();

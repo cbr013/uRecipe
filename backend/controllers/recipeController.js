@@ -142,14 +142,14 @@ exports.getRecipeSearch = (req, res) => {
         const ingredientList = ingredients.split(',').filter(Boolean);
         ingredientList.forEach((ingredient) => {
             query += ` AND ingredients LIKE ?`;
-            params.push(`%"id":"${ingredient}"%`); // Match specific ingredient ID
+            params.push(`%"id":"${ingredient}"%`);
         });
     }
     if (tags) {
         const tagList = tags.split(',').filter(Boolean);
         tagList.forEach((tag) => {
             query += ` AND tags LIKE ?`;
-            params.push(`%"${tag}"%`); // Match exact tag surrounded by commas
+            params.push(`%"${tag}"%`);
         });
     }
 

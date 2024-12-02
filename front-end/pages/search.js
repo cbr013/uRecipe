@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const recipeCard = document.createElement('div');
             recipeCard.className = 'recipe-card';
             recipeCard.innerHTML = `
-                <img src="${recipe.image || 'placeholder.jpg'}" alt="${recipe.title}">
+                <img src="${recipe.image ? `../../backend/images/recipes/${recipe.image}` : '../../backend/images/recipes/placeholder.jpg'}" alt="${recipe.title}">
                 <h3>${recipe.title}</h3>
                 <p>${recipe.description || ''}</p>
                 <a href="view_recipe.html?id=${recipe.recipe_id}" class="view-recipe-btn">View Recipe</a>

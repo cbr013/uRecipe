@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get the recipe ID from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const recipeId = urlParams.get('id');
-    
+
     if (!recipeId) {
         console.error('Recipe ID not found in URL.');
         return;
@@ -21,8 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Populate the HTML with the recipe data
             document.getElementById('recipe-title').textContent = recipe.title;
-            document.getElementById('recipe-image').src = recipe.image || 'placeholder.jpg';
-            document.getElementById('recipe-description').textContent = recipe.description;
+            document.getElementById('recipe-image').src = recipe.image
+                ? `../../backend/images/recipes/${recipe.image}`
+                : '../../backend/images/recipes/placeholder.jpg';
+            document.getElementById('recipe-image').alt = recipe.title || "Recipe Image"; document.getElementById('recipe-description').textContent = recipe.description;
             document.getElementById('recipe-prep-time').textContent = recipe.preparation_time;
 
             // Populate ingredients

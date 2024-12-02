@@ -13,13 +13,13 @@ app.use(cors());
 const userRoutes = require('./routes/userRoutes');
 const recipeRoutes = require('./routes/recipeRoutes');
 const ingredientsRoutes = require('./routes/ingredientsRoutes');
-const tagsRoutes = require('./routes/tagsRoutes'); // Import tags route
+const tagsRoutes = require('./routes/tagsRoutes');
 
 // Use routes
 app.use('/api/users', userRoutes);
 app.use('/api/recipes', recipeRoutes);
 app.use('/api/ingredients', ingredientsRoutes);
-app.use('/api/tags', tagsRoutes); // Use tags route
+app.use('/api/tags', tagsRoutes);
 
 // Start the server
 app.listen(PORT, () => {
