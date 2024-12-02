@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('logoutLink').addEventListener('click', () => {
         localStorage.removeItem('currentUser');
         alert('Logged out successfully!');
-        window.location.href = '/front-end/landing_page.html';
+        window.location.href = '../landing_page.html';
     });
 
     // ---------------------------------------------------------- ingredients ----------------------------------------------------------
