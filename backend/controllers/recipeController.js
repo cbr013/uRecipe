@@ -139,17 +139,17 @@ exports.getRecipeSearch = (req, res) => {
         params.push(`%${name}%`);
     }
     if (ingredients) {
-        const ingredientList = ingredients.split(',').filter(Boolean).map(ing => `%${ing.trim()}%`);
+        const ingredientList = ingredients.split(',').filter(Boolean);
         ingredientList.forEach((ingredient) => {
             query += ` AND ingredients LIKE ?`;
-            params.push(ingredient);
+            params.push(`%"id":"${ingredient}"%`); // Match specific ingredient ID
         });
     }
     if (tags) {
-        const tagList = tags.split(',').filter(Boolean).map(tag => `%${tag.trim()}%`);
+        const tagList = tags.split(',').filter(Boolean);
         tagList.forEach((tag) => {
             query += ` AND tags LIKE ?`;
-            params.push(tag);
+            params.push(`%"${tag}"%`); // Match exact tag surrounded by commas
         });
     }
 
